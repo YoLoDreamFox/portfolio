@@ -1,7 +1,5 @@
-export const template_project = (src_picture_project,alt_picture_project,name_project,description_project,stack_project,url_watch,url_code) => {
-
+export function templateProject(src_picture_project,alt_picture_project,name_project,description_project,stack_project,url_watch,url_code){
     const hiden = !url_code ? 'hiden' : '' ; 
-
     const html = `
     <div class="picture">
         <img src="${src_picture_project}" alt="${alt_picture_project}"></img>
@@ -29,34 +27,48 @@ export const template_project = (src_picture_project,alt_picture_project,name_pr
 }
 
 
-export const card = () => {
+function renderProgressBar(progress_bar_name,progress_bar_value) {
+    const bar = document.createElement('div');
+    bar.className = 'progress_bar';
+    bar.innerHTML = `
+        <p>${progress_bar_name}</p>
+        <progress max="100" value="${progress_bar_value}"></progress>
+    `;
+    return bar;
+}
 
-    const hiden = !url_code ? 'hiden' : '' ; 
 
-    const html = `
-    <div class="card">
-        <h2 data-i18n="${name_card}">name</h2>
-        <div class="all">
-            <label for="all_bars">
-                <div class="info">
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                    <p>4</p>
-                </div>
-            </label>
-            <div class="all_bars" id="all_bars">
-                <!-- Вызов темплейта -->
+function renderAllProgressBar(items) {
+    let placeholder = document.createDocumentFragment();
+    for (const item of items) {
+        placeholder.append(renderProgressBar(item.name, item.level));
+    }
+    return placeholder;
+}
+
+export function templateCard(name_card,items){
+
+    const placeholder = document.createElement('div');
+    placeholder.className = 'card';
+    placeholder.innerHTML = `
+    <h2 data-i18n="${name_card}">name</h2>
+    <div class="all">
+        <label for="all_bars">
+            <div class="info">
+                <p data-i18n="card_level_1">2</p>
+                <p data-i18n="card_level_2">3</p>
+                <p data-i18n="card_level_3">4</p>
             </div>
-            <button class="cool_button">
-                <p>button</p>
-            </button>
+        </label>
+        <div class="all_bars" id="all_bars">
         </div>
+        <button class="cool_button">
+            <p data-i18n="card_button">button</p>
+        </button>
     </div>
     `;
 
-    const placeholder = document.createElement('div');
-    placeholder.innerHTML =html.trim();
+    placeholder.querySelector('.all_bars').append(renderAllProgressBar(items));
     return placeholder;
 }
 
