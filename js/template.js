@@ -72,3 +72,61 @@ export function templateCard(name_card,items){
     return placeholder;
 }
 
+function descriptionUl(description) {
+    let ul = document.createElement('ul');
+    for (const paragraph of description) {
+        const li = document.createElement('li');
+        li.dataset.i18n = paragraph;
+        ul.append(li);
+    }
+    return ul;
+}
+
+
+export function templateExperience(name_experience,start_time_experience,end_time_experience,data_difference_experience,description_experience){
+
+    const {data_difference_ru : data_difference_experience_ru, data_difference_en : data_difference_experience_en} = data_difference_experience;
+    const {start_time_ru : start_time_experience_ru, start_time_en : start_time_experience_en} = start_time_experience;
+    const {end_time_ru : end_time_experience_ru, end_time_en : end_time_experience_en} = end_time_experience;
+
+    const type_experience = description_experience[0].type;
+    const info_ecperience = description_experience[0].info;
+    const description_list_experience = description_experience[1];
+    const stack_experience = description_experience[2];
+
+    const placeholder = document.createElement('div');
+    placeholder.className = 'work';
+    placeholder.innerHTML = `
+    <h2>${name_experience}</h2>
+    <div class="time">
+        <p class="ru">
+            с <time datetime="">${start_time_experience_ru}</time>
+            по <time datetime="">${end_time_experience_ru}</time>
+        </p>
+        <p class="en">
+            from <time datetime="">${start_time_experience_en}</time>
+            to <time datetime="">${end_time_experience_en}</time>
+        </p>
+    </div>
+    <div class="time_diff"> 
+        <p class="ru">${data_difference_experience_ru}</p>
+        <p class="en">${data_difference_experience_en}</p>
+    </div>
+    <div class="description">
+        <div class="info">
+            <p data-i18n="${type_experience}">info</p>
+            <p data-i18n="${info_ecperience}">info</p>
+        </div>
+        <div class="more_info">
+        </div>
+        <div class="stack">
+            <p data-i18n="project_stack">info</p>
+            <p>${stack_experience}</p>
+        </div>
+    </div>
+    `;
+
+    placeholder.querySelector('.more_info').append(descriptionUl(description_list_experience));
+
+    return placeholder;
+}
