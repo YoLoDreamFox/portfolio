@@ -9,77 +9,90 @@
 </head>
 <header>
     <div class="avatar">
-        <img src="" alt=""></img>
+        <img src="data/picture/avatar.png" data-i18n="header_avatar" alt="___"></img>
     </div>
-    <div class="main">
-        <div class="nickname">
-            <h1 data-i18n="portfolio_nickname">nickname</h1>
+    <div>
+        <div class="main">
+            <div class="nickname">
+                <h1 data-i18n="portfolio_nickname">nickname</h1>
+            </div>
+            <div class="title">
+                <h1 data-i18n="portfolio_title">title</h1>
+            </div>
+            <div class="tags">
+                <h1 data-i18n="portfolio_tags">tags</h1>
+            </div>
+            <div class="function_buttons">
+                <button class="language">
+                    <i class="fa-regular fa-globe"></i>
+                </button>
+                <button class="theme">
+                    <i class="fa-solid fa-sun-bright"></i>
+                    <i class="fad fa-moon"></i>
+                </button>
+            </div>
         </div>
-        <div class="title">
-            <h1 data-i18n="portfolio_title">title</h1>
-        </div>
-        <div class="tags">
-            <h1 data-i18n="portfolio_tags">tags</h1>
-        </div>
-        <div class="function_buttons">
-            <button class="language">
-                <i class="fa-regular fa-globe"></i>
+        <div class="about_me">
+            <h2 data-i18n="header_aboutme">About me</h2>
+            <p data-i18n="header_aboutme_text">text</p>
+            <button>
+                <p data-i18n="header_aboutme_button">link</p>
             </button>
-            <button class="theme">
-                <i class="fa-solid fa-sun-bright"></i>
-                <i class="fad fa-moon"></i>
+        </div>
+        <div class="forward">
+            <button class="watch">
+                <p data-i18n="header_project_button">watch</p>
+            </button>
+            <button class="skills">
+                <p data-i18n="header_skill_button">skills</p>
+            </button>
+            <button class="contacts">
+                <p data-i18n="header_contact_button">contacts</p>
             </button>
         </div>
-    </div>
-    <div class="about_me">
-        <h2 data-i18n="header_aboutme">About me</h2>
-        <p data-i18n="header_aboutme_text">text</p>
-        <button>
-            <p data-i18n="header_aboutme_button">link</p>
-        </button>
-    </div>
-    <div class="forward">
-        <button class="watch">
-            <p data-i18n="header_project_button">watch</p>
-        </button>
-        <button class="skills">
-            <p data-i18n="header_skill_button">skills</p>
-        </button>
-        <button class="contacts">
-            <p data-i18n="header_contact_button">contacts</p>
-        </button>
     </div>
 </header>
 <body>
     <div class="projects">
         <h1 data-i18n="h1_project">project</h1>
-        <div class="selector">
-            <select name="" id="select_projects">
-                <option value="test_1">I</option>
-                <option value="test_2">II</option>
-                <option value="test_3">III</option>
-            </select>
-        </div>
-        <div class="main" id="main_projects">
-            <!-- Вызов темплейта -->
+        <div>
+            <div class="selector" id="select_projects">
+                <label class="project_radio_label">
+                    <input type="radio" name="project" value="test_1" checked>
+                    <span class="custom_radio"></span>
+                    I
+                </label>
+                <label class="project_radio_label">
+                    <input type="radio" name="project" value="test_2">
+                    <span class="custom_radio"></span>
+                    II
+                </label>
+                <label class="project_radio_label">
+                    <input type="radio" name="project" value="test_3">
+                    <span class="custom_radio"></span>
+                    III
+                </label>
+            </div>
+            <div class="main" id="main_projects">
+            </div>
         </div>
     </div>
     <div class="skills">
         <h1 data-i18n="h1_skill">skill</h1>
         <div class="main" id="main_skills">
-            <!-- Вызов темплейта -->
         </div>
     </div>
     <div class="experience">
         <h1 data-i18n="h1_experience">Exp</h1>
         <div class="all_exp" id="main_exp">
-            <!-- Вызов темплейта -->
         </div>
     </div>
     <div class="contacts">
         <h1 data-i18n="h1_contact">contacts</h1>
         <div class="main" id="main_contacts">
-            <!-- Вызов темплейта -->
+        </div>
+        <div>
+            <p data-i18n="the_end_contact">lets</p>
         </div>
     </div>
 </body>

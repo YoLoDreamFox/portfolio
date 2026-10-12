@@ -3,4 +3,194 @@
 
 header{
     background-color: aqua;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    >:not(:first-child){
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        >.main{
+            display: flex;
+            gap: 5px; //TODO
+            align-items: center;
+            justify-content: space-between;
+
+
+            >*:not(:last-child){
+                display: contents;
+
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    height: 100%;
+                    background-color: #000000;
+                }
+            }
+        }
+
+        >.about_me{
+            display: flex;
+            flex-direction: column;
+            background: gray;
+            button{
+                margin-left: auto;
+            }
+        }
+
+        >.forward{
+            display: flex;
+            gap: 5px; //TODO
+            width: 100%;
+            justify-content: space-between;
+            >*{
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+.projects{
+    >:not(:first-child){
+        display: flex;
+        gap: 15px;
+        
+        >.selector{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            >*{
+                background: gray;
+            }
+        }
+        >.main{
+            width: 100%;
+            >*{
+                display: flex;
+                gap: 15px;
+                background: gray;
+
+                >:last-child{
+                    width: 100%;
+
+                    .description,.stack{
+                        display: flex;
+                        gap: 5px; //TODO
+                    }
+
+                    .buttons{
+                        display: flex;
+                        gap: 10px; //TODO
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.skills{
+
+    >.main{
+        display: flex;
+        gap: 40px;
+
+        .card{
+            background: gray;
+
+            >h2{
+                text-align: center;
+            }
+
+            >.all{
+                >label{
+                    display: grid;
+                    grid-template-columns: 1fr 3fr;
+                    grid-template-rows: 1fr;
+                    gap: 10px;
+
+                    &::before{
+                        content: "";
+                    }
+                    .info{
+                        display: flex;
+                        gap: 5px;
+                        justify-content: space-between;
+                        >p{
+                            width: 100%;
+                        }
+                        *:first-child{
+                            text-align: start;
+                        }
+                        *:not(:first-child):not(:last-child){
+                            text-align: center;
+                        }
+                        *:last-child{
+                            text-align: end;
+                        }
+                    }
+                }
+                >.all_bars{
+                    display: flex;
+                    flex-direction: column;
+                    >.progress_bar{
+                        display: grid;
+                        gap: 10px;
+                        grid-template-rows: 1fr;
+                        grid-template-columns: 1fr 3fr;
+                    }
+                }
+                >.cool_button{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.experience{
+    >.all_exp{
+
+        >.work{
+            background: gray;
+            >*:first-child{
+                display: flex;
+                justify-content: space-between;
+                >.time_diff{
+                    display: none; //TODO
+                }
+            }
+
+            >.description{
+                
+                .info,.stack{
+                    display: flex;
+                    gap: 5px; //TODO
+                }
+            }
+        }
+    }
+}
+
+.contacts{
+    >.main{
+        display: flex;
+        gap: 15px;
+        justify-content: space-between;
+    }
+    >*:last-child{
+        text-align: center;
+    }
+}
+
+footer{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
 }

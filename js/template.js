@@ -4,20 +4,22 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
     <div class="picture">
         <img src="${src_picture_project}" alt="${alt_picture_project}"></img>
     </div>
-    <h2 data-i18n="${name_project}"></h2>
-    <div class="description">
-        <p data-i18n="${description_project}"></p>
-    </div>
-    <div class="stack">
-        <p data-i18n="project_stack"></p><p>${stack_project}</p>
-    </div>
-    <div class="buttons">
-        <a href="${url_watch}" class="watch">
-            <p data-i18n="project_site">watch</p> 
-        </a>
-        <a href="${url_code}" class="code ${hiden}">
-            <p data-i18n="project_code">code</p>
-        </a>
+    <div>
+        <h2 data-i18n="${name_project}">TODO</h2>
+        <div class="description">
+            <p data-i18n="project_description">TODO</p><p data-i18n="${description_project}">TODO</p>
+        </div>
+        <div class="stack">
+            <p data-i18n="project_stack">TODO</p><p>${stack_project}</p>
+        </div>
+        <div class="buttons">
+            <a href="${url_watch}" class="watch">
+                <p data-i18n="project_site">watch</p> 
+            </a>
+            <a href="${url_code}" class="code ${hiden}">
+                <p data-i18n="project_code">code</p>
+            </a>
+        </div>
     </div>
     `;
 
@@ -91,20 +93,22 @@ export function templateExperience(name_experience,start_time_experience,end_tim
     const placeholder = document.createElement('div');
     placeholder.className = 'work';
     placeholder.innerHTML = `
-    <h2>${name_experience}</h2>
-    <div class="time">
-        <p class="ru">
-            с <time datetime="">${start_time_experience_ru}</time>
-            по <time datetime="">${end_time_experience_ru}</time>
-        </p>
-        <p class="en">
-            from <time datetime="">${start_time_experience_en}</time>
-            to <time datetime="">${end_time_experience_en}</time>
-        </p>
-    </div>
-    <div class="time_diff"> 
-        <p class="ru">${data_difference_experience_ru}</p>
-        <p class="en">${data_difference_experience_en}</p>
+    <div>
+        <h2>${name_experience}</h2>
+        <div class="time">
+            <p class="ru">
+                с <time datetime="">${start_time_experience_ru}</time>
+                по <time datetime="">${end_time_experience_ru}</time>
+            </p>
+            <p class="en">
+                from <time datetime="">${start_time_experience_en}</time>
+                to <time datetime="">${end_time_experience_en}</time>
+            </p>
+        </div>
+        <div class="time_diff"> 
+            <p class="ru">${data_difference_experience_ru}</p>
+            <p class="en">${data_difference_experience_en}</p>
+        </div>
     </div>
     <div class="description">
         <div class="info">
