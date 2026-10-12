@@ -130,3 +130,18 @@ export function templateExperience(name_experience,start_time_experience,end_tim
 
     return placeholder;
 }
+
+
+
+export function templateContact(icon_contact,url_contact,name_contact) {
+    const placeholder = document.createElement('div');
+    placeholder.className = 'contact';
+    placeholder.innerHTML = `
+    <i class="${icon_contact}"></i>
+    <div class="link">
+        <a href="${url_contact}"><p>${name_contact}</p></a>
+    </div>
+    `;
+
+    return placeholder;
+}

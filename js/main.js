@@ -4,6 +4,8 @@ import {templateCard} from './template.js';
 import { cards } from '../data/data.js';
 import {templateExperience} from './template.js';
 import { experience } from '../data/data.js';
+import {templateContact} from './template.js';
+import { contacts } from '../data/data.js';
 
 
 const select_project = document.getElementById('select_projects');
@@ -130,3 +132,14 @@ async function renderExperience() {
 }
 
 renderExperience();
+
+
+async function renderContacts() {
+    const complete = document.createDocumentFragment();
+        for (const group of contacts) {
+            complete.append(templateContact(group.icon, group.url, group.name));
+        }
+    document.getElementById('main_contacts').replaceChildren(complete);
+}
+
+renderContacts();
