@@ -26,7 +26,6 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
     return placeholder;
 }
 
-
 function renderProgressBar(progress_bar_name,progress_bar_value) {
     const bar = document.createElement('div');
     bar.className = 'progress_bar';
@@ -37,7 +36,6 @@ function renderProgressBar(progress_bar_name,progress_bar_value) {
     return bar;
 }
 
-
 function renderAllProgressBar(items) {
     let placeholder = document.createDocumentFragment();
     for (const item of items) {
@@ -47,7 +45,6 @@ function renderAllProgressBar(items) {
 }
 
 export function templateCard(name_card,items){
-
     const placeholder = document.createElement('div');
     placeholder.className = 'card';
     placeholder.innerHTML = `
@@ -84,16 +81,13 @@ function descriptionUl(description) {
 
 
 export function templateExperience(name_experience,start_time_experience,end_time_experience,data_difference_experience,description_experience){
-
     const {data_difference_ru : data_difference_experience_ru, data_difference_en : data_difference_experience_en} = data_difference_experience;
     const {start_time_ru : start_time_experience_ru, start_time_en : start_time_experience_en} = start_time_experience;
     const {end_time_ru : end_time_experience_ru, end_time_en : end_time_experience_en} = end_time_experience;
-
     const type_experience = description_experience[0].type;
     const info_ecperience = description_experience[0].info;
     const description_list_experience = description_experience[1];
     const stack_experience = description_experience[2];
-
     const placeholder = document.createElement('div');
     placeholder.className = 'work';
     placeholder.innerHTML = `
@@ -125,9 +119,7 @@ export function templateExperience(name_experience,start_time_experience,end_tim
         </div>
     </div>
     `;
-
     placeholder.querySelector('.more_info').append(descriptionUl(description_list_experience));
-
     return placeholder;
 }
 
@@ -137,11 +129,7 @@ export function templateContact(icon_contact,url_contact,name_contact) {
     const placeholder = document.createElement('div');
     placeholder.className = 'contact';
     placeholder.innerHTML = `
-    <i class="${icon_contact}"></i>
-    <div class="link">
-        <a href="${url_contact}"><p>${name_contact}</p></a>
-    </div>
+    <a href="${url_contact}" target="_blank"><i class="${icon_contact}"></i> ${name_contact}</a>
     `;
-
     return placeholder;
 }

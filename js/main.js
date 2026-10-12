@@ -1,28 +1,18 @@
-import {templateProject} from './template.js';
-import { projects } from '../data/data.js';
-import {templateCard} from './template.js';
-import { cards } from '../data/data.js';
-import {templateExperience} from './template.js';
-import { experience } from '../data/data.js';
-import {templateContact} from './template.js';
-import { contacts } from '../data/data.js';
+import {templateProject,templateCard,templateExperience,templateContact} from './template.js';
+import {projects,cards,experience,contacts} from '../data/data.js';
 
 
 const select_project = document.getElementById('select_projects');
-
-async function renderProjects(id) {
-    const found = projects.find(info => info.id === id);
-    if (!found) return;
-    const complete = templateProject(found.src,found.alt.ru,found.name.ru,found.description.ru,found.stack,found.urlWatch,found.urlCode);
-    document.getElementById('main_projects').replaceChildren(complete);
-}
-
 select_project.addEventListener('change', (event) => {
     renderProjects(event.target.value);
 });
 
-renderProjects("landing-tea"); //TODO
-
+async function renderProjects(id) {
+    const found = projects.find(info => info.id === id);
+    if (!found) return;
+    const complete = templateProject(found.src,found.alt,found.name,found.description,found.stack,found.urlWatch,found.urlCode);
+    document.getElementById('main_projects').replaceChildren(complete);
+}
 
 async function renderCards() {
 
@@ -32,8 +22,6 @@ async function renderCards() {
     }
     document.getElementById('main_skills').replaceChildren(complete);
 }
-
-renderCards();
 
 function pluralizeRu(value,one,few,many) {
     const rule_ru = new Intl.PluralRules('ru-RU').select(value);
@@ -83,7 +71,6 @@ function timeDifference(data_start,data_end) {
     return {data_difference_ru, data_difference_en};
 }
 
-
 async function renderExperience() {
     const complete = document.createDocumentFragment();
     const experience_sort = experience.toSorted((a,b) => {
@@ -131,9 +118,6 @@ async function renderExperience() {
     document.getElementById('main_exp').replaceChildren(complete);
 }
 
-renderExperience();
-
-
 async function renderContacts() {
     const complete = document.createDocumentFragment();
         for (const group of contacts) {
@@ -142,4 +126,7 @@ async function renderContacts() {
     document.getElementById('main_contacts').replaceChildren(complete);
 }
 
+renderProjects("test_1"); //TODO
+renderCards();
+renderExperience();
 renderContacts();
