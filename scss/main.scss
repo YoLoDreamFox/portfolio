@@ -1,13 +1,11 @@
 @import "./global.scss";
 @import "./font.scss";
-@import "../lib/Awesome font/css/all.min.css";
+@import "../libs/Awesome font/css/all.min.css";
 
 
 
 
 header{
-    background-color: aqua;
-
     display: flex;
     gap: 20px;
     align-items: center;
@@ -45,6 +43,33 @@ header{
                     top: -5px;
                 }
             }
+
+            >.function_buttons{
+                display: flex;
+                gap: 10px;
+                >button,>*>button{
+                    line-height: 0; //Fix unnecessary indentations
+                    font-size: 2em;
+                    background: 0;
+                    padding: 0;
+
+                }
+                >*{
+                    position: relative;
+                    >ul.dropdown_menu{
+                        line-height: normal;
+                        font-size: unset;
+                        position: absolute;
+                        background: aqua;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 30px; //TODO
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
+            }
         }
 
         >.about_me{
@@ -56,7 +81,10 @@ header{
             padding: var(--standart-padding);
             border-radius: var(--standart-border-radius);
             button{
+                text-decoration: underline;
                 margin-left: auto;
+                background: 0;
+                padding: 0;
             }
         }
 
@@ -67,6 +95,7 @@ header{
             justify-content: space-between;
             >*{
                 width: 100%;
+                max-width: 300px; //TODO
             }
         }
     }
@@ -137,6 +166,21 @@ header{
                         margin-top: auto;
                         gap: 10px; //TODO
                         justify-content: space-between;
+
+                        >a{
+                            max-width: 300px; //TODO
+                            justify-content: center;
+                            width: 100%;
+                            background: white; //TODO
+                            border-radius: 10px;
+                            font-size: 1.2em;
+                            padding: 15px;
+                            border: 0;
+                        }
+
+                        &:has(>*.invisible){
+                            justify-content: center;
+                        }
                     }
                 }
             }

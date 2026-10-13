@@ -1,5 +1,6 @@
 import {templateProject,templateCard,templateExperience,templateContact} from './template.js';
-import {projects,cards,experience,contacts} from '../data/data.js';
+import {projects,cards,experience,contacts} from '../data/data_2.js';
+import {gettingLocalization} from './language.js';
 
 
 const select_project = document.getElementById('select_projects');
@@ -7,11 +8,14 @@ select_project.addEventListener('change', (event) => {
     renderProjects(event.target.value);
 });
 
+
+
 async function renderProjects(id) {
     const found = projects.find(info => info.id === id);
     if (!found) return;
     const complete = templateProject(found.src,found.alt,found.name,found.description,found.stack,found.urlWatch,found.urlCode);
     document.getElementById('main_projects').replaceChildren(complete);
+    renderLanguage(); //TODO
 }
 
 async function renderCards() {
@@ -126,7 +130,41 @@ async function renderContacts() {
     document.getElementById('main_contacts').replaceChildren(complete);
 }
 
-renderProjects("test_1"); //TODO
+
+
+
+
+
+
+async function renderLanguage() {
+    const currentLanguage = "ru"; //TODO
+    const allDatai18n = document.querySelectorAll('[data-i18n]');
+    const translation = await gettingLocalization();
+    const languageData = translation[currentLanguage];
+    for (const dataI18n of allDatai18n) {
+        const info = dataI18n.dataset.i18n;
+
+        if (Object.hasOwn(dataI18n, 'alt')) {
+            dataI18n.setAttribute('alt', languageData[info]);
+        }
+        dataI18n.textContent = languageData[info];
+    }
+
+    const allDataLang = document.querySelectorAll('[data-lang]');
+    for (const dataLang of allDataLang) {
+        const info = dataLang.dataset.lang;
+        if (info != currentLanguage) {
+            dataLang.classList.add('invisible');
+        }
+    }
+}
+
+
+
+
+
+renderProjects(select_project.querySelector('input[type="radio"]:checked').value);
 renderCards();
 renderExperience();
 renderContacts();
+renderLanguage();

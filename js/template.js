@@ -5,19 +5,19 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
         <img src="${src_picture_project}" alt="${alt_picture_project}"></img>
     </div>
     <div>
-        <h2 data-i18n="${name_project}">TODO</h2>
+        <h2 data-i18n="${name_project}"></h2>
         <div class="description">
-            <p data-i18n="project_description">TODO</p><p data-i18n="${description_project}">TODO</p>
+            <p data-i18n="project_description"></p><p data-i18n="${description_project}"></p>
         </div>
         <div class="stack">
-            <p data-i18n="project_stack">TODO</p><p>${stack_project}</p>
+            <p data-i18n="project_stack"></p><p>${stack_project}</p>
         </div>
         <div class="buttons">
             <a href="${url_watch}" class="watch">
-                <p data-i18n="project_site">watch</p> 
+                <p data-i18n="project_site"></p> 
             </a>
             <a href="${url_code}" class="code ${hiden}">
-                <p data-i18n="project_code">code</p>
+                <p data-i18n="project_code"></p>
             </a>
         </div>
     </div>
@@ -50,20 +50,20 @@ export function templateCard(name_card,items){
     const placeholder = document.createElement('div');
     placeholder.className = 'card';
     placeholder.innerHTML = `
-    <h2 data-i18n="${name_card}">name</h2>
+    <h2 data-i18n="${name_card}"></h2>
     <div class="all">
         <label for="all_bars">
             <div class="info">
-                <p data-i18n="card_level_1">2</p>
-                <p data-i18n="card_level_2">3</p>
-                <p data-i18n="card_level_3">4</p>
+                <p data-i18n="card_level_1"></p>
+                <p data-i18n="card_level_2"></p>
+                <p data-i18n="card_level_3"></p>
             </div>
         </label>
         <div class="all_bars" id="all_bars">
         </div>
     </div>
     <button class="cool_button">
-        <p data-i18n="card_button">button</p>
+        <p data-i18n="card_button"></p>
     </button>
     `;
 
@@ -94,31 +94,31 @@ export function templateExperience(name_experience,start_time_experience,end_tim
     placeholder.className = 'work';
     placeholder.innerHTML = `
     <div>
-        <h2>${name_experience}</h2>
+        <h2 data-i18n="${name_experience}"></h2>
         <div class="time">
-            <p class="ru">
+            <p data-lang="ru">
                 с <time datetime="">${start_time_experience_ru}</time>
                 по <time datetime="">${end_time_experience_ru}</time>
             </p>
-            <p class="en">
+            <p data-lang="en">
                 from <time datetime="">${start_time_experience_en}</time>
                 to <time datetime="">${end_time_experience_en}</time>
             </p>
         </div>
         <div class="time_diff"> 
-            <p class="ru">${data_difference_experience_ru}</p>
-            <p class="en">${data_difference_experience_en}</p>
+            <p data-lang="ru">${data_difference_experience_ru}</p>
+            <p data-lang="en">${data_difference_experience_en}</p>
         </div>
     </div>
     <div class="description">
         <div class="info">
-            <p data-i18n="${type_experience}">info</p>
-            <p data-i18n="${info_ecperience}">info</p>
+            <p data-i18n="${type_experience}"></p>
+            <p data-i18n="${info_ecperience}"></p>
         </div>
         <div class="more_info">
         </div>
         <div class="stack">
-            <p data-i18n="project_stack">info</p>
+            <p data-i18n="project_stack"></p>
             <p>${stack_experience}</p>
         </div>
     </div>

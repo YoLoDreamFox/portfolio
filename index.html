@@ -9,7 +9,7 @@
 </head>
 <header>
     <div class="avatar">
-        <img src="data/picture/avatar.png" data-i18n="header_avatar" alt="___"></img>
+        <img src="data/picture/avatar.png" data-i18n="header_alt_avatar" alt="___"></img>
     </div>
     <div>
         <div class="main">
@@ -23,9 +23,25 @@
                 <h1 data-i18n="portfolio_tags">tags</h1>
             </div>
             <div class="function_buttons">
-                <button class="language">
-                    <i class="fa-regular fa-globe"></i>
-                </button>
+                <div>
+                    <button class="language">
+                        <i class="fa-regular fa-globe"></i>
+                    </button>
+                    <ul class="dropdown_menu">
+                        <li>
+                            <button>
+                                <span>&#x1F1F7;&#x1F1FA;</span>
+                                <span>russian</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button>
+                                <span>&#x1F1EC;&#x1F1E7;</span>
+                                <span>english</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
                 <button class="theme">
                     <i class="fa-solid fa-sun-bright"></i>
                     <i class="fad fa-moon invisible"></i>
@@ -58,15 +74,15 @@
         <div>
             <div class="selector" id="select_projects">
                 <label class="project_radio_label">
-                    <input type="radio" name="project" value="test_1" checked>
+                    <input type="radio" name="project" value="project_1" checked>
                     <span class="custom_radio">I</span>
                 </label>
                 <label class="project_radio_label">
-                    <input type="radio" name="project" value="test_2">
+                    <input type="radio" name="project" value="project_2">
                     <span class="custom_radio">II</span>
                 </label>
                 <label class="project_radio_label">
-                    <input type="radio" name="project" value="test_3">
+                    <input type="radio" name="project" value="project_3">
                     <span class="custom_radio">III</span>
                 </label>
             </div>
