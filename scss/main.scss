@@ -1,5 +1,9 @@
 @import "./global.scss";
+@import "./font.scss";
 @import "../lib/Awesome font/css/all.min.css";
+
+
+
 
 header{
     background-color: aqua;
@@ -8,10 +12,19 @@ header{
     gap: 20px;
     align-items: center;
 
+    .avatar{
+        width: 320px;
+        aspect-ratio: 1 / 1;
+        min-width: 320px;
+        min-height: 100%;
+        margin: 0;
+    }
+
     >:not(:first-child){
         display: flex;
         flex-direction: column;
         width: 100%;
+        gap: 20px;
 
         >.main{
             display: flex;
@@ -24,19 +37,24 @@ header{
                 display: contents;
 
                 &::after {
-                    content: '';
+                    font-family: 'Caveat', cursive;
+                    font-size: 2em;
+                    content: '.';
                     display: block;
-                    width: 1px;
-                    height: 100%;
-                    background-color: #000000;
+                    position: relative;
+                    top: -5px;
                 }
             }
         }
 
         >.about_me{
+            gap: 5px;
             display: flex;
             flex-direction: column;
             background: gray;
+
+            padding: var(--standart-padding);
+            border-radius: var(--standart-border-radius);
             button{
                 margin-left: auto;
             }
@@ -58,7 +76,6 @@ header{
 .projects{
     >:not(:first-child){
         display: flex;
-        gap: 15px;
         
         >.selector{
             display: flex;
@@ -68,24 +85,56 @@ header{
             >*{
                 background: gray;
             }
+
+            >label{
+                height: 100%;
+                font-weight: bold;
+                text-align: center;
+                align-content: center;
+                padding: var(--standart-padding);
+                border-radius: var(--standart-border-radius) 0 0 var(--standart-border-radius);
+                &:has(input:checked){
+                    background: rgb(73, 73, 73);
+                }
+                >input{
+                    display: none;
+                }
+            }
         }
         >.main{
             width: 100%;
             >*{
                 display: flex;
                 gap: 15px;
-                background: gray;
+                background: rgb(73, 73, 73);
+                padding: var(--standart-padding);
+                border-radius: 0 var(--standart-border-radius) var(--standart-border-radius) 0;
+
+                >.picture{
+                    width: 320px;
+                    aspect-ratio: 16/9;
+                    min-width: 320px;
+                    min-height: 100%;
+                    margin: 0;
+                }
 
                 >:last-child{
                     width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
 
                     .description,.stack{
                         display: flex;
                         gap: 5px; //TODO
+                        >*:first-child{
+                            font-weight: bold;
+                        }
                     }
 
                     .buttons{
                         display: flex;
+                        margin-top: auto;
                         gap: 10px; //TODO
                         justify-content: space-between;
                     }
@@ -102,7 +151,12 @@ header{
         gap: 40px;
 
         .card{
+            gap: 20px;
+            display: flex;
             background: gray;
+            flex-direction: column;
+            padding: var(--standart-padding);
+            border-radius: var(--standart-border-radius);
 
             >h2{
                 text-align: center;
@@ -139,6 +193,7 @@ header{
                 >.all_bars{
                     display: flex;
                     flex-direction: column;
+                    gap: 10px;
                     >.progress_bar{
                         display: grid;
                         gap: 10px;
@@ -146,9 +201,9 @@ header{
                         grid-template-columns: 1fr 3fr;
                     }
                 }
-                >.cool_button{
-                    width: 100%;
-                }
+            }
+            >.cool_button{
+                width: 100%;
             }
         }
     }
@@ -156,9 +211,13 @@ header{
 
 .experience{
     >.all_exp{
-
+        gap: 10px;
+        display: flex;
+        flex-direction: column;
         >.work{
             background: gray;
+            padding: var(--standart-padding);
+            border-radius: var(--standart-border-radius);
             >*:first-child{
                 display: flex;
                 justify-content: space-between;
@@ -172,6 +231,9 @@ header{
                 .info,.stack{
                     display: flex;
                     gap: 5px; //TODO
+                    >*:first-child{
+                        font-weight: bold;
+                    }
                 }
             }
         }
@@ -190,7 +252,17 @@ header{
 }
 
 footer{
-    display: flex;
     gap: 5px;
+    display: flex;
     justify-content: center;
+    background: gray;
+    padding: var(--standart-padding);
+}
+
+
+
+.projects,.skills,.experience,.contacts{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

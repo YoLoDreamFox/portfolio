@@ -1,5 +1,5 @@
 export function templateProject(src_picture_project,alt_picture_project,name_project,description_project,stack_project,url_watch,url_code){
-    const hiden = !url_code ? 'hiden' : '' ; 
+    const hiden = !url_code ? 'invisible' : '' ; 
     const html = `
     <div class="picture">
         <img src="${src_picture_project}" alt="${alt_picture_project}"></img>
@@ -61,10 +61,10 @@ export function templateCard(name_card,items){
         </label>
         <div class="all_bars" id="all_bars">
         </div>
-        <button class="cool_button">
-            <p data-i18n="card_button">button</p>
-        </button>
     </div>
+    <button class="cool_button">
+        <p data-i18n="card_button">button</p>
+    </button>
     `;
 
     placeholder.querySelector('.all_bars').append(renderAllProgressBar(items));
@@ -133,7 +133,7 @@ export function templateContact(icon_contact,url_contact,name_contact) {
     const placeholder = document.createElement('div');
     placeholder.className = 'contact';
     placeholder.innerHTML = `
-    <a href="${url_contact}" target="_blank"><i class="${icon_contact}"></i> ${name_contact}</a>
+    <a href="${url_contact}" target="_blank"><i class="${icon_contact}"></i> <span>${name_contact}</span></a>
     `;
     return placeholder;
 }
