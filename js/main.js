@@ -15,7 +15,7 @@ async function renderProjects(id) {
     if (!found) return;
     const complete = templateProject(found.src,found.alt,found.name,found.description,found.stack,found.urlWatch,found.urlCode);
     document.getElementById('main_projects').replaceChildren(complete);
-    renderLanguage(); //TODO
+    renderLanguage(localCurrentLanguage()); //TODO
 }
 
 async function renderCards() {
@@ -131,33 +131,79 @@ async function renderContacts() {
 }
 
 
+function localCurrentLanguage() {
+    let tryLocal = null;
+    try {
+        tryLocal = localStorage.getItem('language');
+    } catch {
+        tryLocal = null;
+    };
+    let currentLanguage = tryLocal ?? navigator.language.split('-')[0];
+    const supportedLanguages = ['ru', 'en'];
+    if (!supportedLanguages.includes(currentLanguage)) {
+        currentLanguage = 'en';
+    }
+    return currentLanguage;
+}
+
+
+function switchLanguage() {
+    renderLanguage (localCurrentLanguage());
+    const switchRu = document.getElementById('switch-ru');
+    const switchEn = document.getElementById('switch-en');
+    switchRu.addEventListener('click', function(event) {
+        renderLanguage("ru");
+        try {localStorage.setItem('language', 'ru')} catch {};
+    });
+    switchEn.addEventListener('click', function(event) {
+        renderLanguage("en");
+        try {localStorage.setItem('language', 'en')} catch {};
+    });
+}
 
 
 
 
-
-async function renderLanguage() {
-    const currentLanguage = "ru"; //TODO
+async function renderLanguage(currentLanguage) {
+    document.documentElement.setAttribute('lang', currentLanguage);
     const allDatai18n = document.querySelectorAll('[data-i18n]');
     const translation = await gettingLocalization();
-    const languageData = translation[currentLanguage];
-    for (const dataI18n of allDatai18n) {
-        const info = dataI18n.dataset.i18n;
-
-        if (Object.hasOwn(dataI18n, 'alt')) {
-            dataI18n.setAttribute('alt', languageData[info]);
+    if (translation !== null && translation !== undefined) {
+        const languageData = translation[currentLanguage];
+        for (const dataI18n of allDatai18n) {
+            const info = dataI18n.dataset.i18n ?? "error";
+    
+            if (dataI18n.hasAttribute('alt')) {
+                dataI18n.setAttribute('alt', languageData[info]);
+            } else {
+                dataI18n.textContent = languageData[info];
+            }
         }
-        dataI18n.textContent = languageData[info];
-    }
-
-    const allDataLang = document.querySelectorAll('[data-lang]');
-    for (const dataLang of allDataLang) {
-        const info = dataLang.dataset.lang;
-        if (info != currentLanguage) {
-            dataLang.classList.add('invisible');
+    
+        const allDataLang = document.querySelectorAll('[data-lang]');
+        for (const dataLang of allDataLang) {
+            const info = dataLang.dataset.lang;
+            dataLang.classList.remove('invisible');
+            if (info != currentLanguage) {
+                dataLang.classList.add('invisible');
+            }
         }
+
+    } else {
     }
 }
+
+
+
+//TODO
+function languageButton() {
+    const languageButton = document.getElementById('language_button');
+    languageButton.addEventListener('click', function(event) {
+        const dropdownMenu = document.querySelector('.dropdown_menu');
+        dropdownMenu.classList.toggle('invisible')
+    });
+}
+
 
 
 
@@ -167,4 +213,5 @@ renderProjects(select_project.querySelector('input[type="radio"]:checked').value
 renderCards();
 renderExperience();
 renderContacts();
-renderLanguage();
+switchLanguage();
+languageButton();

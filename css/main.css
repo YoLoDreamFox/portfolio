@@ -72,7 +72,7 @@ a > i {
 }
 
 .invisible {
-  display: none;
+  display: none !important;
 }
 
 @font-face {
@@ -197,6 +197,10 @@ header > :not(:first-child) > .main > .function_buttons > * {
   position: relative;
 }
 header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu {
+  right: 0px;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid;
   line-height: normal;
   font-size: unset;
   position: absolute;
@@ -208,10 +212,18 @@ header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 30px;
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu > li > button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  font-size: 1em;
+  border-radius: 0;
+  background: none;
 }
 header > :not(:first-child) > .about_me {
   gap: 5px;

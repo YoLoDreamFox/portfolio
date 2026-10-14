@@ -7,21 +7,30 @@ let translations = {
 
 async function fetchYaml(url) {
     const response = await fetch (url);
-    const yamlText = await response.text();
-    return jsyaml.load(yamlText);
+    if(!response.ok){
+        throw new Error(`Ошибка сервера. HTTP-код: ${response.status}`);
+    } else {
+        const yamlText = await response.text();
+        return jsyaml.load(yamlText);
+    }
 }
 
 export async function gettingLocalization() {
     try {
-        const [ruData,enData] = await Promise.all([
-            fetchYaml('../data/locales/ru.yaml'),
-            fetchYaml('../data/locales/en.yaml')
-        ]);
+        if (Object.values(translations).every(value => value === null)) {
 
-        translations.ru = ruData;
-        translations.en = enData;
-
-        return translations;
+            const [ruData,enData] = await Promise.all([
+                fetchYaml('../data/locales/ru.yaml'),
+                fetchYaml('../data/locales/en.yaml')
+            ]);
+    
+            translations.ru = ruData;
+            translations.en = enData;
+    
+            return translations;
+        } else {
+            return translations;
+        }
 
     } catch (error) {
         console.error("Ошибка импорта", error); //TODO 
