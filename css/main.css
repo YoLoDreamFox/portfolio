@@ -1,17 +1,41 @@
+@charset "UTF-8";
 @import "../libs/Awesome font/css/all.min.css";
 body, html {
-  --bg-color: rgb(13, 17, 23);
+  --bg-color: rgb(231, 237, 239);
+  --text-color: rgb(0, 0, 0);
+  --block-one-color: rgb(208, 228, 239);
+  --block-two-color: rgb(169, 195, 207);
+  --button-color: rgb(52, 114, 123);
+  --button-text-color: rgb(255, 255, 255);
+  --progress-bar-color: rgb(111, 169, 195);
+  --progress-bar-level: 0%;
+  --sparkle-x: 0%;
+  --sparkle-y: 0%;
+  --sparkle-delay: 000ms;
+  --sparkle-duration: 000ms;
+  --glow-delay: 000ms;
   --standart-padding: 15px;
   --standart-border-radius: 10px;
-  --text-color: rgb(0, 0, 0);
   --max-width: 1440px;
   font-family: "Anonymous Pro", monospace;
+  background: var(--bg-color);
   color: var(--text-color);
   font-size: 1em;
   padding: 0;
   margin: 0;
 }
 
+@media (prefers-color-scheme: dark) {
+  body, html {
+    --bg-color: rgb(31, 36, 38);
+    --text-color: rgb(255, 255, 255);
+    --block-one-color: rgb(47, 96, 123);
+    --block-two-color: rgb(38, 61, 81);
+    --button-color: rgb(92, 211, 228);
+    --button-text-color: rgb(0, 0, 0);
+    --progress-bar-color: rgb(111, 169, 195);
+  }
+}
 body {
   height: 100%;
   padding: 0 6.25%;
@@ -52,7 +76,10 @@ button {
   border-radius: 10px;
   font-size: 1.2em;
   padding: 15px;
-  border: 0;
+  border: 2px solid var(--button-color);
+  color: var(--text-color);
+  background: 0;
+  cursor: pointer;
 }
 
 a {
@@ -69,6 +96,9 @@ a > span {
 }
 a > i {
   font-size: 1.5em;
+}
+a:hover {
+  color: var(--button-color);
 }
 
 .invisible {
@@ -192,19 +222,25 @@ header > :not(:first-child) > .main > .function_buttons > button, header > :not(
   font-size: 2em;
   background: 0;
   padding: 0;
+  border: 0;
+  color: var(--text-color);
+}
+header > :not(:first-child) > .main > .function_buttons > button:hover, header > :not(:first-child) > .main > .function_buttons > button:has(+ ul:hover), header > :not(:first-child) > .main > .function_buttons > * > button:hover, header > :not(:first-child) > .main > .function_buttons > * > button:has(+ ul:hover) {
+  color: var(--button-color);
 }
 header > :not(:first-child) > .main > .function_buttons > * {
   position: relative;
 }
 header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu {
+  overflow: hidden;
+  border: 0;
   right: 0px;
   padding: 15px;
   border-radius: 10px;
-  border: 2px solid;
   line-height: normal;
   font-size: unset;
   position: absolute;
-  background: aqua;
+  background: var(--block-two-color);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -217,6 +253,7 @@ header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu {
   margin: 0;
 }
 header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu > li > button {
+  border: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,6 +261,9 @@ header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu >
   font-size: 1em;
   border-radius: 0;
   background: none;
+}
+header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu > li > button:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
 header > :not(:first-child) > .about_me {
   gap: 5px;
@@ -234,7 +274,7 @@ header > :not(:first-child) > .about_me {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: gray;
+  background: var(--block-one-color);
   padding: var(--standart-padding);
   border-radius: var(--standart-border-radius);
 }
@@ -243,6 +283,10 @@ header > :not(:first-child) > .about_me button {
   margin-left: auto;
   background: 0;
   padding: 0;
+  border: 0;
+}
+header > :not(:first-child) > .about_me button:hover {
+  color: var(--button-color);
 }
 header > :not(:first-child) > .forward {
   display: -webkit-box;
@@ -277,7 +321,7 @@ header > :not(:first-child) > .forward > * {
           justify-content: center;
 }
 .projects > :not(:first-child) > .selector > * {
-  background: gray;
+  background: var(--block-one-color);
 }
 .projects > :not(:first-child) > .selector > label {
   height: 100%;
@@ -289,7 +333,7 @@ header > :not(:first-child) > .forward > * {
   border-radius: var(--standart-border-radius) 0 0 var(--standart-border-radius);
 }
 .projects > :not(:first-child) > .selector > label:has(input:checked) {
-  background: rgb(73, 73, 73);
+  background: var(--block-two-color);
 }
 .projects > :not(:first-child) > .selector > label > input {
   display: none;
@@ -302,7 +346,7 @@ header > :not(:first-child) > .forward > * {
   display: -ms-flexbox;
   display: flex;
   gap: 15px;
-  background: rgb(73, 73, 73);
+  background: var(--block-two-color);
   padding: var(--standart-padding);
   border-radius: 0 var(--standart-border-radius) var(--standart-border-radius) 0;
 }
@@ -349,11 +393,14 @@ header > :not(:first-child) > .forward > * {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  background: white;
+  background: 0;
+  border: 2px solid var(--button-color);
   border-radius: 10px;
   font-size: 1.2em;
   padding: 15px;
-  border: 0;
+}
+.projects > :not(:first-child) > .main > * > :last-child .buttons > a:hover {
+  color: inherit;
 }
 .projects > :not(:first-child) > .main > * > :last-child .buttons:has(> *.invisible) {
   -webkit-box-pack: center;
@@ -369,15 +416,17 @@ header > :not(:first-child) > .forward > * {
 }
 .skills > .main .card {
   gap: 20px;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: gray;
+  min-width: 300px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   padding: var(--standart-padding);
+  background: var(--block-one-color);
   border-radius: var(--standart-border-radius);
 }
 .skills > .main .card > h2 {
@@ -444,7 +493,7 @@ header > :not(:first-child) > .forward > * {
           flex-direction: column;
 }
 .experience > .all_exp > .work {
-  background: gray;
+  background: var(--block-two-color);
   padding: var(--standart-padding);
   border-radius: var(--standart-border-radius);
 }
@@ -490,7 +539,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: gray;
+  background: var(--block-one-color);
   padding: var(--standart-padding);
 }
 
@@ -503,4 +552,128 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
+}
+
+.meter {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.meter > .fill {
+  display: block;
+  height: 100%;
+  width: var(--progress-bar-level); /* Изменить на нужное значение заполненности */
+  background-color: var(--progress-bar-color);
+  position: relative;
+  z-index: 1;
+  border-radius: 15px;
+  overflow: hidden; /* Добавлено для обрезки блика */
+}
+
+.meter > * > .glow {
+  position: absolute;
+  top: 0;
+  left: -100%; /* Начальная позиция за пределами заполненной части */
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), color-stop(50%, rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+  -webkit-animation: glow 2s var(--glow-delay) infinite;
+          animation: glow 2s var(--glow-delay) infinite;
+}
+
+@-webkit-keyframes glow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes glow {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-animation: sparkleMove var(--sparkle-duration) var(--sparkle-delay) infinite, sparkleOpacity var(--sparkle-duration) var(--sparkle-delay) infinite;
+          animation: sparkleMove var(--sparkle-duration) var(--sparkle-delay) infinite, sparkleOpacity var(--sparkle-duration) var(--sparkle-delay) infinite;
+  -webkit-animation-timing-function: steps(1), linear;
+          animation-timing-function: steps(1), linear;
+}
+
+@-webkit-keyframes sparkleOpacity {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    opacity: 0;
+  }
+  10%, 30%, 50%, 70%, 90% {
+    opacity: 1;
+  }
+}
+
+@keyframes sparkleOpacity {
+  0%, 20%, 40%, 60%, 80%, 100% {
+    opacity: 0;
+  }
+  10%, 30%, 50%, 70%, 90% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes sparkleMove {
+  0%, 100% {
+    left: mod(var(--sparkle-x) * 8161, 100%);
+    top: mod(var(--sparkle-y) * 8161, 100%);
+  }
+  20% {
+    left: mod(var(--sparkle-x) * 1213, 100%);
+    top: mod(var(--sparkle-y) * 1213, 100%);
+  }
+  40% {
+    left: mod(var(--sparkle-x) * 8329, 100%);
+    top: mod(var(--sparkle-y) * 8329, 100%);
+  }
+  60% {
+    left: mod(var(--sparkle-x) * 2897, 100%);
+    top: mod(var(--sparkle-y) * 2897, 100%);
+  }
+  80% {
+    left: mod(var(--sparkle-x) * 7297, 100%);
+    top: mod(var(--sparkle-y) * 7297, 100%);
+  }
+}
+@keyframes sparkleMove {
+  0%, 100% {
+    left: mod(var(--sparkle-x) * 8161, 100%);
+    top: mod(var(--sparkle-y) * 8161, 100%);
+  }
+  20% {
+    left: mod(var(--sparkle-x) * 1213, 100%);
+    top: mod(var(--sparkle-y) * 1213, 100%);
+  }
+  40% {
+    left: mod(var(--sparkle-x) * 8329, 100%);
+    top: mod(var(--sparkle-y) * 8329, 100%);
+  }
+  60% {
+    left: mod(var(--sparkle-x) * 2897, 100%);
+    top: mod(var(--sparkle-y) * 2897, 100%);
+  }
+  80% {
+    left: mod(var(--sparkle-x) * 7297, 100%);
+    top: mod(var(--sparkle-y) * 7297, 100%);
+  }
 }

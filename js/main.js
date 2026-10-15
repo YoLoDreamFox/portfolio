@@ -198,14 +198,21 @@ async function renderLanguage(currentLanguage) {
 //TODO
 function languageButton() {
     const languageButton = document.getElementById('language_button');
-    languageButton.addEventListener('click', function(event) {
-        const dropdownMenu = document.querySelector('.dropdown_menu');
-        dropdownMenu.classList.toggle('invisible')
+    const dropdownMenu = document.querySelector('.dropdown_menu');
+    document.addEventListener('click', (event) => {
+        if (languageButton.contains(event.target)) {
+            dropdownMenu.classList.toggle('invisible');
+        } else if (!dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.add('invisible');
+        }
+    });
+    languageButton.parentElement.addEventListener('mouseover', () => {
+        dropdownMenu.classList.remove('invisible');
+    });
+    languageButton.parentElement.addEventListener('mouseout', () => {
+        dropdownMenu.classList.add('invisible');
     });
 }
-
-
-
 
 
 

@@ -1,16 +1,49 @@
 body,html {
-    --bg-color: rgb(13, 17, 23);
+    --bg-color: rgb(231, 237, 239);
+    --text-color: rgb(0, 0, 0);
+    --block-one-color: rgb(208, 228, 239);
+    --block-two-color: rgb(169, 195, 207);
+    --button-color: rgb(52, 114, 123);
+    --button-text-color: rgb(255, 255, 255); //TODO
+    --progress-bar-color: rgb(111, 169, 195);
+
+
+
+
+    --progress-bar-level: 0%;
+
+    --sparkle-x: 0%;
+    --sparkle-y: 0%;
+    --sparkle-delay: 000ms;
+    --sparkle-duration: 000ms;
+    --glow-delay: 000ms;
+
+
+
+
     --standart-padding: 15px;
     --standart-border-radius: 10px;
-    --text-color: rgb(0, 0, 0);
 
     --max-width: 1440px;
 
     font-family: 'Anonymous Pro', monospace;
+    background: var(--bg-color);
     color: var(--text-color);
     font-size: 1em;
     padding: 0;
     margin: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    body,html {
+        --bg-color: rgb(31, 36, 38);
+        --text-color: rgb(255, 255, 255);
+        --block-one-color: rgb(47, 96, 123);
+        --block-two-color: rgb(38, 61, 81);
+        --button-color: rgb(92, 211, 228);
+        --button-text-color: rgb(0, 0, 0); //TODO
+        --progress-bar-color: rgb(111, 169, 195);
+    }
 }
 
 body {
@@ -48,7 +81,10 @@ button {
     border-radius: 10px;
     font-size: 1.2em;
     padding: 15px;
-    border: 0;
+    border: 2px solid var(--button-color);
+    color: var(--text-color);
+    background: 0;
+    cursor: pointer;
 }
 
 a {
@@ -64,9 +100,10 @@ a {
     >i{
         font-size: 1.5em;   
     }
-    // >i,&:hover>i,&:focus>i,&:visited>i{
-    //     text-decoration: none;
-    // }
+
+    &:hover{
+        color: var(--button-color);
+    }
 }
 
 .invisible{

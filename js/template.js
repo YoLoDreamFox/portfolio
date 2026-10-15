@@ -28,13 +28,37 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
     return placeholder;
 }
 
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
 function renderProgressBar(progress_bar_name,progress_bar_value) {
+    let sparkles = document.createDocumentFragment();
+    let i = 0
+    while (i < 5) {
+        const sparkle = document.createElement('span');
+        sparkle.className = 'sparkle';
+        sparkle.style.setProperty('--sparkle-x', getRandomInt(0,100) + "%");
+        sparkle.style.setProperty('--sparkle-y', getRandomInt(0,100) + "%");
+        sparkle.style.setProperty('--sparkle-delay',getRandomInt(1,1000) + "ms");
+        sparkle.style.setProperty('--sparkle-duration', getRandomInt(5000,10000)+ "ms");
+        sparkles.append(sparkle);
+        i++;
+    }
     const bar = document.createElement('div');
     bar.className = 'progress_bar';
     bar.innerHTML = `
         <p>${progress_bar_name}</p>
-        <progress max="100" value="${progress_bar_value}"></progress>
+        <div class="meter">
+            <span class="fill">
+                <span class="glow"></span>
+            </span>
+        </div>
     `;
+    bar.querySelector('.fill').style.setProperty('--progress-bar-level', `${progress_bar_value}%`);
+    bar.querySelector('.glow').style.setProperty('--glow-delay',getRandomInt(1,1000)+ "ms")
+    bar.querySelector('.fill').append(sparkles);
     return bar;
 }
 

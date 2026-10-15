@@ -1,5 +1,6 @@
 @import "./global.scss";
 @import "./font.scss";
+@import "./animation.scss";
 @import "../libs/Awesome font/css/all.min.css";
 
 
@@ -52,19 +53,24 @@ header{
                     font-size: 2em;
                     background: 0;
                     padding: 0;
-
+                    border: 0;
+                    color: var(--text-color);
+                    &:hover, &:has(+ul:hover){
+                        color: var(--button-color);
+                    }
                 }
                 >*{
                     position: relative;
                     >ul.dropdown_menu{
+                        overflow: hidden;
+                        border: 0;
                         right: 0px;
                         padding: 15px;
                         border-radius: 10px;
-                        border: 2px solid;
                         line-height: normal;
                         font-size: unset;
                         position: absolute;
-                        background: aqua;
+                        background: var(--block-two-color);
                         display: flex;
                         flex-direction: column;
                         list-style-type: none;
@@ -72,11 +78,15 @@ header{
                         margin: 0;
                         >li{
                             >button{
+                                border: 0;
                                 display: flex;
                                 gap: 5px;
                                 font-size: 1em;
                                 border-radius: 0;
                                 background: none;
+                                &:hover{
+                                    background: rgba($color: #000000, $alpha: 0.2);
+                                }
                             }
                         }
                     }
@@ -88,7 +98,7 @@ header{
             gap: 5px;
             display: flex;
             flex-direction: column;
-            background: gray;
+            background: var(--block-one-color);
 
             padding: var(--standart-padding);
             border-radius: var(--standart-border-radius);
@@ -97,6 +107,10 @@ header{
                 margin-left: auto;
                 background: 0;
                 padding: 0;
+                border: 0;
+                &:hover{
+                    color: var(--button-color);
+                }
             }
         }
 
@@ -124,7 +138,7 @@ header{
             justify-content: center;
 
             >*{
-                background: gray;
+                background: var(--block-one-color);
             }
 
             >label{
@@ -135,7 +149,7 @@ header{
                 padding: var(--standart-padding);
                 border-radius: var(--standart-border-radius) 0 0 var(--standart-border-radius);
                 &:has(input:checked){
-                    background: rgb(73, 73, 73);
+                    background: var(--block-two-color);
                 }
                 >input{
                     display: none;
@@ -147,7 +161,7 @@ header{
             >*{
                 display: flex;
                 gap: 15px;
-                background: rgb(73, 73, 73);
+                background: var(--block-two-color);
                 padding: var(--standart-padding);
                 border-radius: 0 var(--standart-border-radius) var(--standart-border-radius) 0;
 
@@ -183,11 +197,15 @@ header{
                             max-width: 300px; //TODO
                             justify-content: center;
                             width: 100%;
-                            background: white; //TODO
+                            background: 0;
+                            border: 2px solid var(--button-color);
                             border-radius: 10px;
                             font-size: 1.2em;
                             padding: 15px;
-                            border: 0;
+
+                            &:hover{
+                                color: inherit;
+                            }
                         }
 
                         &:has(>*.invisible){
@@ -208,10 +226,12 @@ header{
 
         .card{
             gap: 20px;
+            width: 100%;
             display: flex;
-            background: gray;
+            min-width: 300px;
             flex-direction: column;
             padding: var(--standart-padding);
+            background: var(--block-one-color);
             border-radius: var(--standart-border-radius);
 
             >h2{
@@ -271,7 +291,7 @@ header{
         display: flex;
         flex-direction: column;
         >.work{
-            background: gray;
+            background: var(--block-two-color);
             padding: var(--standart-padding);
             border-radius: var(--standart-border-radius);
             >*:first-child{
@@ -311,7 +331,7 @@ footer{
     gap: 5px;
     display: flex;
     justify-content: center;
-    background: gray;
+    background: var(--block-one-color);
     padding: var(--standart-padding);
 }
 
@@ -321,4 +341,129 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.meter {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.meter {
+    >.fill {
+        display: block;
+        height: 100%;
+        width: var(--progress-bar-level); /* Изменить на нужное значение заполненности */
+        background-color: var(--progress-bar-color);
+        position: relative;
+        z-index: 1;
+        border-radius: 15px;
+        overflow: hidden; /* Добавлено для обрезки блика */
+    }
+}
+
+.meter {
+    >*>.glow {
+        position: absolute;
+        top: 0;
+        left: -100%; /* Начальная позиция за пределами заполненной части */
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.3) 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+        animation: glow 2s var(--glow-delay) infinite;
+    }
+}
+
+@keyframes glow {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+//   animation-iteration-count: infinite;
+    // transform: translate(var(--sparkle-x),var(--sparkle-y));
+    animation: sparkleMove var(--sparkle-duration) var(--sparkle-delay) infinite, sparkleOpacity var(--sparkle-duration) var(--sparkle-delay) infinite;
+    animation-timing-function: steps(1), linear;
+    // animation-delay: var(--sparkle-delay);
+}
+
+@keyframes sparkleOpacity {
+    0%,20%,40%,60%,80%,100% {
+        opacity: 0;
+    }
+    10%,30%,50%,70%,90% {
+        opacity: 1;
+    }
+}
+
+@keyframes sparkleMove {
+    0%,100%{
+        // transform: translate(90%,42%);
+        // transform: translate(var(--sparkle-x),var(--sparkle-y));
+        // left: var(--sparkle-x);
+        // top: var(--sparkle-y);
+        left: calc(mod(var(--sparkle-x) * 8161, 100%));
+        top: calc(mod(var(--sparkle-y) * 8161, 100%));
+    }
+    20%{
+        // transform: translate(20%,79%);
+        // transform: translate(calc(var(--sparkle-x) * 0.44),calc(var(--sparkle-y) * 0.26));
+        // left: calc(var(--sparkle-x) * 0.44);
+        // top: calc(var(--sparkle-y) * 0.26);
+        left: calc(mod(var(--sparkle-x) * 1213, 100%));
+        top: calc(mod(var(--sparkle-y) * 1213, 100%));
+    }
+    40%{
+        // transform: translate(40%,35%);
+        // transform: translate(calc(var(--sparkle-x) * 0.32),calc(var(--sparkle-y) * 0.78));
+        // left: calc(var(--sparkle-x) * 0.32);
+        // top: calc(var(--sparkle-y) * 0.78);
+        left: calc(mod(var(--sparkle-x) * 8329, 100%));
+        top: calc(mod(var(--sparkle-y) * 8329, 100%));
+    }
+    60%{
+        // transform: translate(23%,92%);
+        // transform: translate(calc(var(--sparkle-x) * 0.94),calc(var(--sparkle-y) * 0.39));
+        // left: calc(var(--sparkle-x) * 0.94);
+        // top: calc(var(--sparkle-y) * 0.39);
+        left: calc(mod(var(--sparkle-x) * 2897, 100%));
+        top: calc(mod(var(--sparkle-y) * 2897, 100%));
+    }
+    80%{
+        // transform: translate(71%,15%);
+        // transform: translate(calc(var(--sparkle-x) * 0.13),calc(var(--sparkle-y) * 0.84));
+        // left: calc(var(--sparkle-x) * 0.13);
+        // top: calc(var(--sparkle-y) * 0.84);
+        left: calc(mod(var(--sparkle-x) * 7297, 100%));
+        top: calc(mod(var(--sparkle-y) * 7297, 100%));
+    }
 }
