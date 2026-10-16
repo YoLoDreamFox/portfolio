@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        try {
+            if (localStorage.getItem('theme') !== null) {
+                document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+            }
+        } catch {};
+    </script>
     <link rel="stylesheet" href="css/main.css">
     <script type="module" src="js/main.js"></script>
     <title data-i18n="portfolio">Potfolio</title>
@@ -42,28 +49,39 @@
                         </li>
                     </ul>
                 </div>
-                <button class="theme">
-                    <i class="fa-solid fa-sun-bright"></i>
-                    <i class="fad fa-moon invisible"></i>
-                </button>
+                <div class="theme">
+                    <button class="light">
+                        <i class="fa-solid fa-sun-bright"></i>
+                    </button>
+                    <button class="auto">
+                        <i class="fal fa-eclipse"></i>
+                    </button>
+                    <button class="dark">
+                        <i class="fad fa-moon"></i>
+                    </button>
+                    <span class="target_theme"></span>
+                </div>
             </div>
         </div>
         <div class="about_me">
             <h2 data-i18n="header_aboutme">About me</h2>
             <p data-i18n="header_aboutme_text">text</p>
-            <button>
+            <button id="button_more_info">
                 <p data-i18n="header_aboutme_button">link</p>
             </button>
         </div>
         <div class="forward">
-            <button class="watch">
+            <button class="watch original">
                 <p data-i18n="header_project_button">watch</p>
+                <span></span>
             </button>
-            <button class="skills">
+            <button class="skills original">
                 <p data-i18n="header_skill_button">skills</p>
+                <span></span>
             </button>
-            <button class="contacts">
+            <button class="contacts original">
                 <p data-i18n="header_contact_button">contacts</p>
+                <span></span>
             </button>
         </div>
     </div>
@@ -115,3 +133,16 @@
     <p data-i18n="footer_right">rights</p>
 </footer>
 </html>
+
+
+<dialog id="more_info">
+    <div>
+        <form method="dialog">
+            <button class="cross">
+                <i class="fas fa-times"></i>
+            </button>
+        </form>
+        <p data-i18n="header_aboutme_full_text">
+        </p>
+    </div>
+</dialog>

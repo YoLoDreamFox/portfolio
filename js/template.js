@@ -12,12 +12,14 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
         <div class="stack">
             <p data-i18n="project_stack"></p><p>${stack_project}</p>
         </div>
-        <div class="buttons">
-            <a href="${url_watch}" class="watch">
+        <div class="buttons ">
+            <a href="${url_watch}" class="watch original">
                 <p data-i18n="project_site"></p> 
+                <span></span>
             </a>
-            <a href="${url_code}" class="code ${hiden}">
+            <a href="${url_code}" class="code original ${hiden}">
                 <p data-i18n="project_code"></p>
+                <span></span>
             </a>
         </div>
     </div>
@@ -86,8 +88,9 @@ export function templateCard(name_card,items){
         <div class="all_bars" id="all_bars">
         </div>
     </div>
-    <button class="cool_button">
+    <button class="cool_button original">
         <p data-i18n="card_button"></p>
+        <span></span>
     </button>
     `;
 

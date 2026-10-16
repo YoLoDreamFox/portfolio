@@ -60,6 +60,7 @@ header{
                     }
                 }
                 >*{
+                    margin: auto;
                     position: relative;
                     >ul.dropdown_menu{
                         overflow: hidden;
@@ -89,6 +90,29 @@ header{
                                 }
                             }
                         }
+                    }
+                }
+                >.theme{
+                    display: grid;
+                    overflow: hidden;
+                    border-radius: 10px;
+                    background: var(--block-one-color);
+                    grid-template-columns: repeat(3, 1fr);
+                    >button{
+                        z-index: 1;
+                        padding: 5px;
+                        >i{
+                            pointer-events: none;
+                        }
+                    }
+                    >span{
+                        left: 50%;
+                        width: 33%;
+                        height: 100%;
+                        position: absolute;
+                        transform: translateX(-50%);
+                        background: var(--block-two-color);
+                        transition: left 0.3s ease, transform 0.3s ease;
                     }
                 }
             }
@@ -194,6 +218,7 @@ header{
                         justify-content: space-between;
 
                         >a{
+                            text-align: center;
                             max-width: 300px; //TODO
                             justify-content: center;
                             width: 100%;
@@ -202,10 +227,6 @@ header{
                             border-radius: 10px;
                             font-size: 1.2em;
                             padding: 15px;
-
-                            &:hover{
-                                color: inherit;
-                            }
                         }
 
                         &:has(>*.invisible){
@@ -219,8 +240,10 @@ header{
 }
 
 .skills{
-
+    // container: main-grid / inline-size; ;
     >.main{
+        justify-content: unset;
+        overflow: scroll;
         display: flex;
         gap: 40px;
 
@@ -229,6 +252,7 @@ header{
             width: 100%;
             display: flex;
             min-width: 300px;
+            max-width: 400px;
             flex-direction: column;
             padding: var(--standart-padding);
             background: var(--block-one-color);
@@ -284,6 +308,13 @@ header{
         }
     }
 }
+
+// @container main-grid (min-width: var(--max-width)) {
+//     .main{
+//         justify-content: center;
+//     }
+// }
+
 
 .experience{
     >.all_exp{
@@ -346,12 +377,20 @@ footer{
 
 
 
-
-
-
-
-
-
+dialog{
+    >div{
+        padding: 15px; //TODO
+        display: flex;
+        flex-direction: column;
+        >*:first-child{
+            margin-left: auto;
+        }
+        .cross{
+            border: 0;
+            padding: 0;
+        }
+    }
+}
 
 
 .meter {

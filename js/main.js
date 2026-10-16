@@ -151,11 +151,11 @@ function switchLanguage() {
     renderLanguage (localCurrentLanguage());
     const switchRu = document.getElementById('switch-ru');
     const switchEn = document.getElementById('switch-en');
-    switchRu.addEventListener('click', function(event) {
+    switchRu.addEventListener('click', function() {
         renderLanguage("ru");
         try {localStorage.setItem('language', 'ru')} catch {};
     });
-    switchEn.addEventListener('click', function(event) {
+    switchEn.addEventListener('click', function() {
         renderLanguage("en");
         try {localStorage.setItem('language', 'en')} catch {};
     });
@@ -215,6 +215,61 @@ function languageButton() {
 }
 
 
+//TODO
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {localStorage.setItem('theme', theme)} catch {};
+}
+
+function themeButton() {
+    const themeButton = document.querySelector('.theme');
+    themeButton.addEventListener('click', (event) => {
+        if (event.target.classList.contains('light')) {
+            setTheme('light');
+        } else if (event.target.classList.contains('dark')) {
+            setTheme('dark');
+        } else if (event.target.classList.contains('auto')) {
+            document.documentElement.removeAttribute('data-theme');
+            try {localStorage.removeItem('theme')} catch {};
+        }
+    });
+
+}
+
+function aboutButton() {
+    const aboutButton = document.getElementById('button_more_info');
+    const aboutDialog = document.getElementById('more_info');
+    aboutDialog.addEventListener('click', (event) => {
+        if (event.target === aboutDialog) {
+            aboutDialog.close();
+        }
+    })
+    aboutButton.addEventListener('click', () => {
+        aboutDialog.showModal();
+    })
+}
+
+
+function updateSpanPosition(event, button) {
+    const span = button.querySelector('span');
+    if (!span) return;
+    const rect = button.getBoundingClientRect();
+    span.style.left = `${event.clientX - rect.left}px`;
+    span.style.top = `${event.clientY - rect.top}px`;
+}
+
+function animatedButton() {
+    const handler = (event) => {
+        const button = event.target.closest('.original');
+        if (!button) return;                               
+        if (button.contains(event.relatedTarget)) return;   
+        updateSpanPosition(event, button);
+    };
+    document.addEventListener('mouseover', handler);
+    document.addEventListener('mouseout', handler);
+}
+
+
 
 renderProjects(select_project.querySelector('input[type="radio"]:checked').value);
 renderCards();
@@ -222,3 +277,8 @@ renderExperience();
 renderContacts();
 switchLanguage();
 languageButton();
+
+
+themeButton();
+aboutButton();
+animatedButton();

@@ -17,6 +17,7 @@ body, html {
   --standart-padding: 15px;
   --standart-border-radius: 10px;
   --max-width: 1440px;
+  color-scheme: light dark;
   font-family: "Anonymous Pro", monospace;
   background: var(--bg-color);
   color: var(--text-color);
@@ -36,6 +37,43 @@ body, html {
     --progress-bar-color: rgb(111, 169, 195);
   }
 }
+html[data-theme=light], html[data-theme=light] body {
+  --bg-color: rgb(231, 237, 239);
+  --text-color: rgb(0, 0, 0);
+  --block-one-color: rgb(208, 228, 239);
+  --block-two-color: rgb(169, 195, 207);
+  --button-color: rgb(52, 114, 123);
+  --button-text-color: rgb(255, 255, 255);
+  --progress-bar-color: rgb(111, 169, 195);
+}
+html[data-theme=light] span.target_theme {
+  left: 0% !important;
+  -webkit-transform: translateX(0%) !important;
+          transform: translateX(0%) !important;
+}
+
+html[data-theme=dark], html[data-theme=dark] body {
+  --bg-color: rgb(31, 36, 38);
+  --text-color: rgb(255, 255, 255);
+  --block-one-color: rgb(47, 96, 123);
+  --block-two-color: rgb(38, 61, 81);
+  --button-color: rgb(92, 211, 228);
+  --button-text-color: rgb(0, 0, 0);
+  --progress-bar-color: rgb(111, 169, 195);
+}
+html[data-theme=dark] span.target_theme {
+  left: 100% !important;
+  -webkit-transform: translateX(-100%) !important;
+          transform: translateX(-100%) !important;
+}
+
+dialog {
+  padding: 0;
+  border: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
 body {
   height: 100%;
   padding: 0 6.25%;
@@ -73,21 +111,66 @@ h1, h2, p, a {
 }
 
 button {
+  z-index: 1;
+  background: 0;
+  overflow: hidden;
+  position: relative;
   border-radius: 10px;
   font-size: 1.2em;
   padding: 15px;
+  cursor: pointer;
+  color: var(--text-color);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+button.original, a.original {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  text-transform: uppercase;
   border: 2px solid var(--button-color);
   color: var(--text-color);
-  background: 0;
-  cursor: pointer;
+  -webkit-transition: color 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
+  z-index: 1;
+}
+button.original span, a.original span {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background-color: var(--button-color);
+  -webkit-transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: -1;
+}
+button.original:hover, a.original:hover {
+  color: var(--button-text-color);
+}
+button.original:hover span, a.original:hover span {
+  width: 225%;
+  height: 562.5px;
+}
+button.original:active, a.original:active {
+  background-color: var(--button-color);
 }
 
 a {
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
   text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 5px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 a > span {
   -ms-flex-line-pack: center;
@@ -161,6 +244,7 @@ a:hover {
   font-style: italic;
   font-display: swap;
 }
+/* 12 */
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -229,6 +313,7 @@ header > :not(:first-child) > .main > .function_buttons > button:hover, header >
   color: var(--button-color);
 }
 header > :not(:first-child) > .main > .function_buttons > * {
+  margin: auto;
   position: relative;
 }
 header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu {
@@ -264,6 +349,33 @@ header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu >
 }
 header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu > li > button:hover {
   background: rgba(0, 0, 0, 0.2);
+}
+header > :not(:first-child) > .main > .function_buttons > .theme {
+  display: grid;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--block-one-color);
+  grid-template-columns: repeat(3, 1fr);
+}
+header > :not(:first-child) > .main > .function_buttons > .theme > button {
+  z-index: 1;
+  padding: 5px;
+}
+header > :not(:first-child) > .main > .function_buttons > .theme > button > i {
+  pointer-events: none;
+}
+header > :not(:first-child) > .main > .function_buttons > .theme > span {
+  left: 50%;
+  width: 33%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: var(--block-two-color);
+  -webkit-transition: left 0.3s ease, -webkit-transform 0.3s ease;
+  transition: left 0.3s ease, -webkit-transform 0.3s ease;
+  transition: left 0.3s ease, transform 0.3s ease;
+  transition: left 0.3s ease, transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 header > :not(:first-child) > .about_me {
   gap: 5px;
@@ -388,6 +500,7 @@ header > :not(:first-child) > .forward > * {
           justify-content: space-between;
 }
 .projects > :not(:first-child) > .main > * > :last-child .buttons > a {
+  text-align: center;
   max-width: 300px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -399,9 +512,6 @@ header > :not(:first-child) > .forward > * {
   font-size: 1.2em;
   padding: 15px;
 }
-.projects > :not(:first-child) > .main > * > :last-child .buttons > a:hover {
-  color: inherit;
-}
 .projects > :not(:first-child) > .main > * > :last-child .buttons:has(> *.invisible) {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -409,6 +519,10 @@ header > :not(:first-child) > .forward > * {
 }
 
 .skills > .main {
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  overflow: scroll;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -421,6 +535,7 @@ header > :not(:first-child) > .forward > * {
   display: -ms-flexbox;
   display: flex;
   min-width: 300px;
+  max-width: 400px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -552,6 +667,24 @@ footer {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
+}
+
+dialog > div {
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+dialog > div > *:first-child {
+  margin-left: auto;
+}
+dialog > div .cross {
+  border: 0;
+  padding: 0;
 }
 
 .meter {
