@@ -1,3 +1,15 @@
+@mixin variables {
+    --standart-padding: 15px;
+    --standart-gap-small: 5px;
+    --standart-gap-medium: 10px;
+    --standart-gap-large: 20px;
+    --standart-border-radius: 10px;
+    --max-width-button: 300px;
+}
+
+
+
+
 body,html {
     --bg-color: rgb(231, 237, 239);
     --text-color: rgb(0, 0, 0);
@@ -14,15 +26,9 @@ body,html {
     --sparkle-duration: 000ms;
     --glow-delay: 000ms;
 
-    --standart-padding: 15px;
-    --standart-gap-small: 5px;
-    --standart-gap-medium: 10px;
-    --standart-gap-large: 20px;
-    --standart-border-radius: 10px;
+    // @include variables;
 
     // --max-width: 1440px;
-    --max-width-button: 300px;
-
     color-scheme: light dark;
     font-family: 'Anonymous Pro', monospace;
     background: var(--bg-color);
@@ -30,6 +36,25 @@ body,html {
     font-size: 1em;
     padding: 0;
     margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
+
+    >div.all_content{
+        min-width: 0;
+        min-height: 0;
+        padding: 0 6.25%;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -76,101 +101,78 @@ html[data-theme="dark"] {
         transform: translateX(-100%) !important;
     }
 }
-
-dialog{
-    padding: 0;
-    border: 0;
-    background: var(--bg-color);
-    color: var(--text-color);
-}
-
-body:has(dialog[open]:modal) {
-    overflow: hidden;
-    scrollbar-gutter: stable;
-}
-
-body {
-    height: 100%;
+@mixin global_style {
+    dialog{
+        padding: 0;
+        border: 0;
+        background: var(--bg-color);
+        color: var(--text-color);
+    }
     
-}
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
-h1 {
-    font-family: 'Caveat', cursive;
-    font-size: 2em;
-    &::first-letter {
-        text-transform: uppercase;
+    body:has(dialog[open]:modal) {
+        overflow: hidden;
+        scrollbar-gutter: stable;
     }
-}
-
-h2 {
-    font-size: 1.5em;
-}
-
-h1,h2,p,a {
-    color: inherit;
-    margin: 0;
-}
-
-button {
-    z-index: 1;
-    background: 0;
-    overflow: hidden;
-    position: relative;
-    border-radius: var(--standart-border-radius);
-    font-size: 1.2em;
-    padding: var(--standart-padding);
-    cursor: pointer;
-    color: var(--text-color);
-    transition: all 0.2s ease-in-out;
-
-}
-
-a {
-    z-index: 1;
-    overflow: hidden;
-    position: relative;
-    text-decoration: none;
-    display: flex;
-    gap: var(--standart-gap-small);
-    transition: all 0.2s ease-in-out;
-
-    >span{
-        align-content: center;
-        text-decoration: underline;
+    
+    img {
+        width: 100%;
+        height: 100%;
     }
-
-    >i{
-        font-size: 1.5em;   
+    
+    h1 {
+        font-family: 'Caveat', cursive;
+        font-size: 2em;
+        &::first-letter {
+            text-transform: uppercase;
+        }
     }
-
-    &:hover{
-        color: var(--button-color);
+    
+    h2 {
+        font-size: 1.5em;
+    }
+    
+    h1,h2,p,a {
+        color: inherit;
+        margin: 0;
+    }
+    
+    button {
+        z-index: 1;
+        background: 0;
+        overflow: hidden;
+        position: relative;
+        border-radius: var(--standart-border-radius);
+        font-size: 1.2em;
+        padding: var(--standart-padding);
+        cursor: pointer;
+        color: var(--text-color);
+        transition: all 0.2s ease-in-out;
+    }
+    
+    a {
+        z-index: 1;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+        display: flex;
+        gap: var(--standart-gap-small);
+        transition: all 0.2s ease-in-out;
+    
+        >span{
+            align-content: center;
+            text-decoration: underline;
+        }
+    
+        >i{
+            font-size: 1.5em;   
+        }
+    
+        &:hover{
+            color: var(--button-color);
+        }
     }
 }
 
 .invisible{
     display: none !important; 
 }
-
-body{
-    display: grid;
-    grid-template-rows: 1fr auto;
-    min-height: 100vh;
-
-    >div.all_content{
-        min-width: 0;
-        min-height: 0;
-        padding: 0 6.25%;
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
- }
-
-
