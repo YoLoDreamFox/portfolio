@@ -4,11 +4,8 @@ body,html {
     --block-one-color: rgb(208, 228, 239);
     --block-two-color: rgb(169, 195, 207);
     --button-color: rgb(52, 114, 123);
-    --button-text-color: rgb(255, 255, 255); //TODO
+    --button-text-color: rgb(255, 255, 255);
     --progress-bar-color: rgb(111, 169, 195);
-
-
-
 
     --progress-bar-level: 0%;
     --sparkle-x: 0%;
@@ -17,13 +14,14 @@ body,html {
     --sparkle-duration: 000ms;
     --glow-delay: 000ms;
 
-
-
-
     --standart-padding: 15px;
+    --standart-gap-small: 5px;
+    --standart-gap-medium: 10px;
+    --standart-gap-large: 20px;
     --standart-border-radius: 10px;
 
-    --max-width: 1440px;
+    // --max-width: 1440px;
+    --max-width-button: 300px;
 
     color-scheme: light dark;
     font-family: 'Anonymous Pro', monospace;
@@ -41,7 +39,7 @@ body,html {
         --block-one-color: rgb(47, 96, 123);
         --block-two-color: rgb(38, 61, 81);
         --button-color: rgb(92, 211, 228);
-        --button-text-color: rgb(0, 0, 0); //TODO
+        --button-text-color: rgb(0, 0, 0);
         --progress-bar-color: rgb(111, 169, 195);
     }
 }
@@ -53,7 +51,7 @@ html[data-theme="light"] {
         --block-one-color: rgb(208, 228, 239);
         --block-two-color: rgb(169, 195, 207);
         --button-color: rgb(52, 114, 123);
-        --button-text-color: rgb(255, 255, 255); //TODO
+        --button-text-color: rgb(255, 255, 255);
         --progress-bar-color: rgb(111, 169, 195);
     }
     span.target_theme{
@@ -69,7 +67,7 @@ html[data-theme="dark"] {
         --block-one-color: rgb(47, 96, 123);
         --block-two-color: rgb(38, 61, 81);
         --button-color: rgb(92, 211, 228);
-        --button-text-color: rgb(0, 0, 0); //TODO
+        --button-text-color: rgb(0, 0, 0);
         --progress-bar-color: rgb(111, 169, 195);
     }
 
@@ -86,13 +84,14 @@ dialog{
     color: var(--text-color);
 }
 
+body:has(dialog[open]:modal) {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+}
+
 body {
     height: 100%;
-    padding: 0 6.25%;
-    display: flex;
-    flex-direction: column;
-    margin-top: 30px;
-    gap: 30px;
+    
 }
 
 img {
@@ -122,52 +121,13 @@ button {
     background: 0;
     overflow: hidden;
     position: relative;
-    border-radius: 10px;
+    border-radius: var(--standart-border-radius);
     font-size: 1.2em;
-    padding: 15px;
+    padding: var(--standart-padding);
     cursor: pointer;
     color: var(--text-color);
     transition: all 0.2s ease-in-out;
 
-}
-
-button, a{
-    &.original {
-        position: relative;
-        display: block;
-        overflow: hidden;
-        width: 100%;
-        text-transform: uppercase;
-        border: 2px solid var(--button-color);
-        color: var(--text-color);
-        transition: color 0.4s ease-in-out;
-        z-index: 1;
-
-        span {
-            position: absolute;
-            display: block;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background-color: var(--button-color);
-            transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
-
-        &:hover {
-            color: var(--button-text-color);
-        }
-
-        &:hover span {
-            width: 225%;
-            height: calc(250px * 2.25); //TODO
-        }
-
-        &:active {
-            background-color: var(--button-color);
-        }
-    }
 }
 
 a {
@@ -176,7 +136,7 @@ a {
     position: relative;
     text-decoration: none;
     display: flex;
-    gap: 5px;
+    gap: var(--standart-gap-small);
     transition: all 0.2s ease-in-out;
 
     >span{
@@ -197,7 +157,21 @@ a {
     display: none !important; 
 }
 
+body{
+    display: grid;
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
 
+    >div.all_content{
+        min-width: 0;
+        min-height: 0;
+        padding: 0 6.25%;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+ }
 
 
 @media (max-width: 1362px) {

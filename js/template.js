@@ -122,19 +122,21 @@ export function templateExperience(name_experience,start_time_experience,end_tim
     placeholder.innerHTML = `
     <div>
         <h2 data-i18n="${name_experience}"></h2>
-        <div class="time">
-            <p data-lang="ru">
-                с <time datetime="">${start_time_experience_ru}</time>
-                по <time datetime="">${end_time_experience_ru}</time>
-            </p>
-            <p data-lang="en">
-                from <time datetime="">${start_time_experience_en}</time>
-                to <time datetime="">${end_time_experience_en}</time>
-            </p>
-        </div>
-        <div class="time_diff"> 
-            <p data-lang="ru">${data_difference_experience_ru}</p>
-            <p data-lang="en">${data_difference_experience_en}</p>
+        <div>
+            <div class="time">
+                <p data-lang="ru">
+                    с <time datetime="">${start_time_experience_ru}</time>
+                    по <time datetime="">${end_time_experience_ru}</time>
+                </p>
+                <p data-lang="en">
+                    from <time datetime="">${start_time_experience_en}</time>
+                    to <time datetime="">${end_time_experience_en}</time>
+                </p>
+            </div>
+            <div class="time_diff"> 
+                <p data-lang="ru">${data_difference_experience_ru}</p>
+                <p data-lang="en">${data_difference_experience_en}</p>
+            </div>
         </div>
     </div>
     <div class="description">

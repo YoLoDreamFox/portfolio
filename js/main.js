@@ -171,12 +171,12 @@ async function renderLanguage(currentLanguage) {
     if (translation !== null && translation !== undefined) {
         const languageData = translation[currentLanguage];
         for (const dataI18n of allDatai18n) {
-            const info = dataI18n.dataset.i18n ?? "error";
+            const info = dataI18n.dataset.i18n ?? "error_not_specified_key";
     
             if (dataI18n.hasAttribute('alt')) {
-                dataI18n.setAttribute('alt', languageData[info]);
+                dataI18n.setAttribute('alt', languageData[info] ?? languageData["error_nonexistent_key"]);
             } else {
-                dataI18n.textContent = languageData[info];
+                dataI18n.textContent = languageData[info] ?? languageData["error_nonexistent_key"];
             }
         }
     
@@ -193,9 +193,6 @@ async function renderLanguage(currentLanguage) {
     }
 }
 
-
-
-//TODO
 function languageButton() {
     const languageButton = document.getElementById('language_button');
     const dropdownMenu = document.querySelector('.dropdown_menu');
@@ -214,8 +211,6 @@ function languageButton() {
     });
 }
 
-
-//TODO
 function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     try {localStorage.setItem('theme', theme)} catch {};
@@ -270,6 +265,81 @@ function animatedButton() {
 }
 
 
+function forwadingButton() {
+    const forwadingButtons = document.querySelector('.forward').querySelectorAll('button');
+    for (const forwadingButton of forwadingButtons) {
+        forwadingButton.addEventListener('click', () => {
+            document.querySelector(forwadingButton.dataset.target).scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    }
+}
+
+function scrollButtonCreate(allCards) {
+    const scrollButtonRight = document.querySelector('.control_button.right');
+    const scrollButtonLeft = document.querySelector('.control_button.left');
+    let isScrolling = false;
+    
+    scrollButtonRight.addEventListener('click', () => {
+        allCards.scrollBy({
+            left: allCards.querySelector('.card').offsetWidth,
+            behavior: 'smooth'
+        })
+    });
+
+    scrollButtonLeft.addEventListener('click', () => {
+        allCards.scrollBy({
+            left: -allCards.querySelector('.card').offsetWidth,
+            behavior: 'smooth'
+        })
+    });
+
+    allCards.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                scrollButton(allCards);
+                isScrolling = false;
+            });
+            isScrolling = true;
+        };
+    });
+
+}
+
+function scrollButton(allCards) {
+    const scrollButtonRight = document.querySelector('.control_button.right');
+    const scrollButtonLeft = document.querySelector('.control_button.left');
+    if (allCards.clientWidth < allCards.scrollWidth) {
+        scrollButtonRight.classList.remove('invisible');
+        scrollButtonLeft.classList.remove('invisible');
+    } else {
+        scrollButtonRight.classList.add('invisible');
+        scrollButtonLeft.classList.add('invisible');
+    }
+    if (allCards.scrollLeft <= 0) {
+        scrollButtonLeft.classList.add('invisible');
+    }
+    if (Math.ceil(allCards.scrollLeft) >= allCards.scrollWidth - allCards.clientWidth){
+        scrollButtonRight.classList.add('invisible');
+    }
+    
+}
+
+function test() {
+    const allCards = document.getElementById('main_skills');
+    scrollButtonCreate(allCards);
+    
+    const resizeObserver = new ResizeObserver(() => {
+            scrollButton(allCards);
+    });
+    resizeObserver.observe(allCards);
+    for (const card of allCards.querySelectorAll('.card')){
+        resizeObserver.observe(card);
+    }
+}
+
 
 renderProjects(select_project.querySelector('input[type="radio"]:checked').value);
 renderCards();
@@ -282,3 +352,6 @@ languageButton();
 themeButton();
 aboutButton();
 animatedButton();
+forwadingButton();
+
+test();
