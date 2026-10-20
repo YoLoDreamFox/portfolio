@@ -2,7 +2,7 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
     const hiden = !url_code ? 'invisible' : '' ; 
     const html = `
     <div class="picture">
-        <img src="${src_picture_project}" alt="${alt_picture_project}"></img>
+        <img src="${src_picture_project}" data-i18n="${alt_picture_project}" alt=""></img>
     </div>
     <div>
         <h2 data-i18n="${name_project}"></h2>
@@ -13,11 +13,11 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
             <p data-i18n="project_stack"></p><p>${stack_project}</p>
         </div>
         <div class="buttons ">
-            <a href="${url_watch}" class="watch original">
+            <a href="${url_watch}" target="_blank" class="watch original">
                 <p data-i18n="project_site"></p> 
                 <span></span>
             </a>
-            <a href="${url_code}" class="code original ${hiden}">
+            <a href="${url_code}" target="_blank" class="code original ${hiden}">
                 <p data-i18n="project_code"></p>
                 <span></span>
             </a>
@@ -88,10 +88,10 @@ export function templateCard(name_card,items){
         <div class="all_bars" id="all_bars">
         </div>
     </div>
-    <button class="cool_button original">
+    <!-- <button class="cool_button original">
         <p data-i18n="card_button"></p>
         <span></span>
-    </button>
+    </button>  -->
     `;
 
     placeholder.querySelector('.all_bars').append(renderAllProgressBar(items));
@@ -109,14 +109,16 @@ function descriptionUl(description) {
 }
 
 
-export function templateExperience(name_experience,start_time_experience,end_time_experience,data_difference_experience,description_experience){
+export function templateExperience(name_experience,start_time_experience,end_time_experience,data_end_experience,data_difference_experience,description_experience){
     const {data_difference_ru : data_difference_experience_ru, data_difference_en : data_difference_experience_en} = data_difference_experience;
     const {start_time_ru : start_time_experience_ru, start_time_en : start_time_experience_en} = start_time_experience;
     const {end_time_ru : end_time_experience_ru, end_time_en : end_time_experience_en} = end_time_experience;
     const type_experience = description_experience[0].type;
     const info_ecperience = description_experience[0].info;
     const description_list_experience = description_experience[1];
-    const stack_experience = description_experience[2];
+    const stack_experience = description_experience[2].join(', ');
+    const start_time_datetime = new Date(start_time_experience_en).toLocaleDateString('en-CA');
+    const end_time_datetime = new Date(data_end_experience).toLocaleDateString('en-CA');
     const placeholder = document.createElement('div');
     placeholder.className = 'work';
     placeholder.innerHTML = `
@@ -125,12 +127,12 @@ export function templateExperience(name_experience,start_time_experience,end_tim
         <div>
             <div class="time">
                 <p data-lang="ru">
-                    с <time datetime="">${start_time_experience_ru}</time>
-                    по <time datetime="">${end_time_experience_ru}</time>
+                    <time datetime="${start_time_datetime}">с ${start_time_experience_ru}</time>
+                    <time datetime="${end_time_datetime}">по ${end_time_experience_ru}</time>
                 </p>
                 <p data-lang="en">
-                    from <time datetime="">${start_time_experience_en}</time>
-                    to <time datetime="">${end_time_experience_en}</time>
+                    <time datetime="${start_time_datetime}">from ${start_time_experience_en}</time>
+                    <time datetime="${end_time_datetime}">to ${end_time_experience_en}</time>
                 </p>
             </div>
             <div class="time_diff"> 

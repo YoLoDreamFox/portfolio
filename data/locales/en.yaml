@@ -1,0 +1,79 @@
+portfolio : "Portfolio"
+header_alt_avatar : "Site creator and developer"
+portfolio_nickname : "YoLoDreamFox"
+portfolio_title : "Junior HTML/CSS developer"
+portfolio_tags : "HTML / CSS / SCSS"
+header_aboutme : "About me:"
+header_aboutme_text : "I turn design mockups into responsive interfaces and like everything to look neat on any screen."
+header_aboutme_button : "more details >>>"
+header_aboutme_full_text_1 : "I'm a beginner HTML/CSS developer with team experience: for 9 months I worked on a web application, where I built responsive pages, the mobile version, animations and HTML emails."
+header_aboutme_full_text_2 : "I studied at a design institute, so I pay close attention to spacing, fonts and details. I draw and do animation, which helps me understand mockups better and see how a designer's ideas turn into code."
+header_aboutme_full_text_3 : "Right now I'm looking for my first permanent position in layout or front-end development, where I can grow within a team."
+header_project_button : "[View projects]"
+header_skill_button : "[Skills]"
+header_contact_button : "[Contact me]"
+
+h1_project : "Projects"
+project_description : "Description:"
+project_stack : "Stack:"
+project_site : "[View]"
+project_code : "[Code]"
+
+h1_skill : "Skills"
+card_level_1 : "Basic"
+card_level_2 : "Working"
+card_level_3 : "Confident"
+card_button : "Cool button"
+
+h1_experience : "Experience"
+type_experience_solo : "Solo project:"
+type_experience_team : "Team project:"
+
+h1_contact : "Contacts"
+the_end_contact : "Let's work together!"
+
+footer_copyright : " 2026 YoLoDreamFox"
+footer_info : "Built with love"
+footer_right : "All rights fur-served"
+
+error_not_specified_key : "NO KEY SPECIFIED FOR THIS VARIABLE!"
+error_nonexistent_key : "THE SPECIFIED KEY DOES NOT EXIST!"
+
+# ------- Меняемые -------
+alt_picture_project_number_1 : "Screenshot of the portfolio page"
+alt_picture_project_number_2 : "Screenshot description"
+alt_picture_project_number_3 : "Screenshot description"
+ 
+name_project_number_1 : "Portfolio"
+name_project_number_2 : "Name 2"
+name_project_number_3 : "Name 3"
+ 
+description_project_number_1 : "My portfolio page. Responsive layout for desktop and mobile, light and dark themes, Russian and English versions. Projects, skills and experience are rendered from data files, and the animations are built with CSS."
+description_project_number_2 : "Incredible description of project 2"
+description_project_number_3 : "Incredible description of project 3"
+ 
+name_card_number_1 : "Layout"
+name_card_number_2 : "JavaScript"
+name_card_number_3 : "Tools"
+name_card_number_4 : "Additional"
+ 
+name_experience_number_1 : "Web developer"
+name_experience_number_2 : "Typesetter (on-screen text)"
+name_experience_number_3 : "Third"
+ 
+info_experience_number_1 : "fitness web application."
+info_experience_number_2 : "Anilibia anime dubbing studio."
+info_experience_number_3 : "mini synopsis 2"
+ 
+li_experience_number_1_par_1 : "Layout of responsive pages and the mobile version"
+li_experience_number_1_par_2 : "Interface animations"
+li_experience_number_1_par_3 : "HTML emails for newsletters"
+li_experience_number_1_par_4 : "Testing, bug fixing, working with Git and a task tracker"
+ 
+li_experience_number_2_par_1 : "Typesetting on-screen text in videos based on the release materials"
+li_experience_number_2_par_2 : "Frame-by-frame fitting of moving text to the video"
+li_experience_number_2_par_3 : "Teamwork and meeting release deadlines"
+ 
+li_experience_number_3_par_1 : "Item 1"
+li_experience_number_3_par_2 : "Item 2"
+li_experience_number_3_par_3 : "Item 3"

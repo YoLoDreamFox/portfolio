@@ -1,5 +1,5 @@
 import {templateProject,templateCard,templateExperience,templateContact} from './template.js';
-import {projects,cards,experience,contacts} from '../data/data_2.js';
+import {projects,cards,experience,contacts} from '../data/data.js';
 import {gettingLocalization} from './language.js';
 
 
@@ -13,7 +13,7 @@ select_project.addEventListener('change', (event) => {
 async function renderProjects(id) {
     const found = projects.find(info => info.id === id);
     if (!found) return;
-    const complete = templateProject(found.src,found.alt,found.name,found.description,found.stack,found.urlWatch,found.urlCode);
+    const complete = templateProject(found.src,found.alt,found.name,found.description,found.stack.join(', '),found.urlWatch,found.urlCode);
     document.getElementById('main_projects').replaceChildren(complete);
     renderLanguage(localCurrentLanguage()); //TODO
 }
@@ -104,20 +104,20 @@ async function renderExperience() {
             end_time = {end_time_ru, end_time_en};
         }else{
             data_end = new Date(group.end.year, group.end.month-1, group.end.day);
-            const end_time_ru = data_end.toLocaleDateString('ru-RU',{month: 'long', year: 'numeric'});
-            const end_time_en = data_end.toLocaleDateString('en-US',{month: 'long', year: 'numeric'});
+            const end_time_ru = data_end.toLocaleDateString('ru-RU',{day: 'numeric', month: 'long', year: 'numeric'});
+            const end_time_en = data_end.toLocaleDateString('en-US',{day: 'numeric', month: 'long', year: 'numeric'});
             end_time = {end_time_ru, end_time_en};
         }
 
         const difference_time = timeDifference(data_start,data_end);
         
         
-        const start_time_ru = data_start.toLocaleDateString('ru-RU',{month: 'long', year: 'numeric'});
-        const start_time_en = data_start.toLocaleDateString('en-US',{month: 'long', year: 'numeric'});
+        const start_time_ru = data_start.toLocaleDateString('ru-RU',{day: 'numeric', month: 'long', year: 'numeric'});
+        const start_time_en = data_start.toLocaleDateString('en-US',{day: 'numeric', month: 'long', year: 'numeric'});
         const start_time = {start_time_ru, start_time_en};
 
 
-        complete.append(templateExperience(group.name,start_time,end_time,difference_time,group.description));
+        complete.append(templateExperience(group.name,start_time,end_time,data_end,difference_time,group.description));
     }
     document.getElementById('main_exp').replaceChildren(complete);
 }
@@ -327,7 +327,7 @@ function scrollButton(allCards) {
     
 }
 
-function test() {
+function scrollForAllCards() {
     const allCards = document.getElementById('main_skills');
     scrollButtonCreate(allCards);
     
@@ -354,4 +354,4 @@ aboutButton();
 animatedButton();
 forwadingButton();
 
-test();
+scrollForAllCards();

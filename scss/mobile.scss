@@ -1,5 +1,5 @@
 @mixin styles {
-    @media (max-width: 1362px) {
+    @media (max-width: 1460px) {
         header{
             flex-direction: column;
             >.avatar{
@@ -10,7 +10,7 @@
         }
     }
     
-    @media (max-width: 980px) {
+    @media (max-width: 1080px) {
         body,html {
             --standart-padding: 10px;
             // --standart-gap-small: 5px;
@@ -130,6 +130,15 @@
                 >*:first-child{
                     flex-direction: column;
                     text-align: center;
+                    >h2{
+                        text-wrap: balance;
+                    }
+                    >*>.time>p{
+                        gap: var(--standart-gap-small);
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    }
                 }
                 >.description{
                     gap: var(--standart-gap-medium);

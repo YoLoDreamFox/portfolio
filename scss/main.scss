@@ -78,6 +78,9 @@
             min-width: 320px;
             min-height: 100%;
             margin: 0;
+            >img{
+                border-radius: 100%;
+            }
         }
      
         >:not(:first-child) {
@@ -258,6 +261,7 @@
      
                     >.picture {
                         aspect-ratio: 16 / 9;
+                        align-self: center;
                         min-height: 220px;
                         max-height: 220px;
                         margin: 0;
@@ -344,7 +348,7 @@
                 }
      
                 .card {
-                    @include flex-column(var(--standart-gap-large));
+                    @include flex-column(var(--standart-gap-medium));
                     @include surface(var(--block-one-color));
                     width: 100%;
                     min-width: 300px;
@@ -359,6 +363,7 @@
     
                         >label {
                             @include skill-row;
+                            opacity: 0.8;
      
                             &::before {
                                 content: "";
@@ -389,6 +394,11 @@
      
                             >.progress_bar {
                                 @include skill-row;
+                                >p{
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                }
                             }
                         }
                     }

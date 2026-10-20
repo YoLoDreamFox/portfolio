@@ -439,6 +439,9 @@ html[data-theme=dark] span.target_theme {
     min-height: 100%;
     margin: 0;
   }
+  header .avatar > img {
+    border-radius: 100%;
+  }
   header > :not(:first-child) {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -651,6 +654,8 @@ html[data-theme=dark] span.target_theme {
   }
   .projects > :not(:first-child) > .main > * > .picture {
     aspect-ratio: 16/9;
+    -ms-flex-item-align: center;
+        align-self: center;
     min-height: 220px;
     max-height: 220px;
     margin: 0;
@@ -760,7 +765,7 @@ html[data-theme=dark] span.target_theme {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    gap: var(--standart-gap-large);
+    gap: var(--standart-gap-medium);
     background: var(--block-one-color);
     padding: var(--standart-padding);
     border-radius: var(--standart-border-radius);
@@ -777,6 +782,7 @@ html[data-theme=dark] span.target_theme {
     gap: var(--standart-gap-medium);
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 3fr;
+    opacity: 0.8;
   }
   .skills > * > .main .card > .all > label::before {
     content: "";
@@ -815,6 +821,11 @@ html[data-theme=dark] span.target_theme {
     gap: var(--standart-gap-medium);
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 3fr;
+  }
+  .skills > * > .main .card > .all > .all_bars > .progress_bar > p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .skills > * > .main .card > .cool_button {
     width: 100%;
@@ -953,7 +964,7 @@ html[data-theme=dark] span.target_theme {
   }
 }
 @layer mobileStyles {
-  @media (max-width: 1362px) {
+  @media (max-width: 1460px) {
     header {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
@@ -966,7 +977,7 @@ html[data-theme=dark] span.target_theme {
       min-height: unset;
     }
   }
-  @media (max-width: 980px) {
+  @media (max-width: 1080px) {
     body, html {
       --standart-padding: 10px;
       --max-width-button: unset;
@@ -1107,6 +1118,20 @@ html[data-theme=dark] span.target_theme {
           -ms-flex-direction: column;
               flex-direction: column;
       text-align: center;
+    }
+    .experience > .all_exp > .work > *:first-child > h2 {
+      text-wrap: balance;
+    }
+    .experience > .all_exp > .work > *:first-child > * > .time > p {
+      gap: var(--standart-gap-small);
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
     .experience > .all_exp > .work > .description {
       gap: var(--standart-gap-medium);

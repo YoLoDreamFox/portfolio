@@ -1,0 +1,81 @@
+portfolio : "Визитка"
+header_alt_avatar : "Создатель и разработчик сайта"
+portfolio_nickname : "YoLoDreamFox"
+portfolio_title : "Junior верстальщик"
+portfolio_tags : "HTML / CSS / SCSS"
+header_aboutme : "Обо мне:"
+header_aboutme_text : "Верстаю адаптивные интерфейсы по макетам и люблю, когда всё выглядит аккуратно на любом экране."
+header_aboutme_button : "более подробно >>>"
+header_aboutme_full_text_1 : "Я верстальщик-новичок с опытом командной разработки: 9 месяцев работал над веб-приложением, где верстал адаптивные страницы, мобильную версию, анимации и HTML-письма."
+header_aboutme_full_text_2 : "Учился в Институте дизайна, поэтому внимательно отношусь к отступам, шрифтам и деталям. Рисую и занимаюсь анимацией, это помогает лучше понимать макеты и то, как задумки дизайнера превращаются в код."
+header_aboutme_full_text_3 : "Сейчас ищу первое постоянное место в вёрстке или фронтенде, где можно расти в команде."
+header_project_button : "[Смотреть проекты]"
+header_skill_button : "[Навыки]"
+header_contact_button : "[Связаться]"
+
+h1_project : "Проекты"
+project_description : "Описание:"
+project_stack : "Стек:"
+project_site : "[Смотреть]"
+project_code : "[Код]"
+
+h1_skill : "Навыки"
+card_level_1 : "Знаю"
+card_level_2 : "Умею"
+card_level_3 : "Владею"
+card_button : "Крутая кнопка"
+
+h1_experience : "Опыт"
+type_experience_solo : "Одиночный проект:"
+type_experience_team : "Командный проект:"
+
+h1_contact : "Контакты"
+the_end_contact : "Давайте поработаем вместе!"
+
+footer_copyright : " 2026 YoLoDreamFox"
+footer_info : "Сверстано с любовью"
+footer_right : "Все права зафырфырканы"
+
+
+error_not_specified_key : "У ПЕРЕМЕННОЙ НЕ УКАЗАН КЛЮЧ!"
+error_nonexistent_key : "УКАЗАН НЕ СУЩЕСТВУЮЩИЙ КЛЮЧ!"
+
+# ------- Меняемые -------
+# TODO написать описания скрина
+alt_picture_project_number_1 : "Скриншот страницы-портфолио"
+alt_picture_project_number_2 : "Описание скриншота"
+alt_picture_project_number_3 : "Описание скриншота"
+
+name_project_number_1 : "Портфолио"
+name_project_number_2 : "Имя 2"
+name_project_number_3 : "Имя 3"
+
+description_project_number_1 : "Моя страница-портфолио. Адаптивная вёрстка для компьютера и телефона, светлая и тёмная темы, переключение русского и английского. Проекты, навыки и опыт подставляются из файлов данных, а анимации сделаны на CSS."
+description_project_number_2 : "Невероятной описание 2 проекта"
+description_project_number_3 : "Невероятной описание 3 проекта"
+
+name_card_number_1 : "Верстка"
+name_card_number_2 : "JavaScript"
+name_card_number_3 : "Инструменты"
+name_card_number_4 : "Дополнительно"
+
+name_experience_number_1 : "Программист (веб-разработка)"
+name_experience_number_2 : "Тайпсеттер (оформление надписей)"
+name_experience_number_3 : "Третий"
+
+info_experience_number_1 : "веб-приложение для фитнеса."
+info_experience_number_2 : "студия озвучки аниме Anilibia."
+info_experience_number_3 : "мини синопсис 2"
+
+li_experience_number_1_par_1 : "Верстка адаптивных страниц и мобильной версии"
+li_experience_number_1_par_2 : "Анимации интерфейсов"
+li_experience_number_1_par_3 : "HTML-письма для рассылок"
+li_experience_number_1_par_4 : "Тестирование, исправление багов, работа с Git и таск-трекером"
+
+li_experience_number_2_par_1 : "Оформление надписей в видео по материалам релиза"
+li_experience_number_2_par_2 : "Покадровая подгонка движущихся надписей под видео"
+li_experience_number_2_par_3 : "Работа в команде, соблюдение сроков выпуска релизов"
+
+li_experience_number_3_par_1 : "Пункт 1"
+li_experience_number_3_par_2 : "Пункт 2"
+li_experience_number_3_par_3 : "Пункт 3"
