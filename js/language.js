@@ -20,8 +20,8 @@ export async function gettingLocalization() {
         if (Object.values(translations).every(value => value === null)) {
 
             const [ruData,enData] = await Promise.all([
-                fetchYaml('../data/locales/ru.yaml'),
-                fetchYaml('../data/locales/en.yaml')
+                fetchYaml('./data/locales/ru.yaml'),
+                fetchYaml('./data/locales/en.yaml')
             ]);
     
             translations.ru = ruData;
