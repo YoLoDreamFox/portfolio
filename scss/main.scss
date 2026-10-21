@@ -193,6 +193,7 @@
      
                 button {
                     text-decoration: underline;
+                    border-radius: 0;
                     margin-left: auto;
                     @include plain-button;
                     @include accent-hover;

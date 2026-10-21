@@ -6,8 +6,8 @@ export const projects = [
     name:  "name_project_number_1",
     description: "description_project_number_1",
     stack: ["HTML", "SCSS (Sass)", "JavaScript", "js-yaml",],
-    urlWatch: "https://yolodreamfox.github.io/Portfolio/",
-    urlCode: "https://github.com/YoLoDreamFox/Portfolio",
+    urlWatch: "https://yolodreamfox.github.io/portfolio/",
+    urlCode: "https://github.com/YoLoDreamFox/portfolio",
   },
   {
     id: "project_2",
