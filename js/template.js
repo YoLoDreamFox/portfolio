@@ -164,7 +164,7 @@ export function templateContact(icon_contact,url_contact,name_contact) {
     const placeholder = document.createElement('div');
     placeholder.className = 'contact';
     placeholder.innerHTML = `
-    <a href="${url_contact}" target="_blank"><i class="${icon_contact}"></i> <span>${name_contact}</span></a>
+    <a href="${url_contact}" target="_blank"><app-icon name="${icon_contact}"></app-icon><span>${name_contact}</span></a>
     `;
     return placeholder;
 }

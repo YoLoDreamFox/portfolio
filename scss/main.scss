@@ -11,7 +11,15 @@
 }
 
 @layer main{
-    
+
+    .testtest{
+        position: absolute;
+        >svg{
+            color: inherit;
+            width: 30px;
+            height: 30px;
+        }
+    }
      
     @mixin flex-column($gap) {
         display: flex;
@@ -109,11 +117,14 @@
                 >.function_buttons {
                     display: flex;
                     gap: var(--standart-gap-medium);
+                    >*:first-child{
+                        display: flex;
+                    }
      
                     >button,
                     >* >button {
                         line-height: 0;
-                        font-size: 2em;
+                        --icon-size: 2em;
                         @include plain-button;
                         color: var(--text-color);
      
@@ -132,6 +143,7 @@
                             overflow: hidden;
                             border: 0;
                             right: 0;
+                            top: 100%;
                             padding: 0;
                             margin: 0;
                             border-radius: var(--standart-border-radius);
@@ -148,6 +160,7 @@
                                 display: flex;
                                 gap: var(--standart-gap-small);
                                 font-size: 1em;
+                                --icon-size: 1em;
                                 border-radius: 0;
                                 background: none;
      
@@ -169,7 +182,7 @@
                             z-index: 1;
                             padding: 5px;
      
-                            >i {
+                            >app-icon {
                                 pointer-events: none;
                             }
                         }
@@ -317,7 +330,7 @@
                     background: var(--block-two-color);
                     padding: var(--standart-padding);
                     border: 0;
-                    font-size: 1.5em;
+                    --icon-size: 1.5em;
                     @include accent-hover;
         
                     &.left {
@@ -330,8 +343,12 @@
                         --bias-arrow: -5%;
                     }
         
-                    &:hover i {
+                    &:hover app-icon {
                         animation: moveArrow 0.5s infinite;
+                    }
+
+                    >*{
+                        display: flex;
                     }
                 }
      
@@ -465,6 +482,9 @@
             display: flex;
             gap: var(--standart-gap-large);
             justify-content: space-between;
+            >.contact{
+                --icon-size: 2em;
+            }
         }
      
         >*:last-child {
