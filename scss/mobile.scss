@@ -61,7 +61,7 @@
                     >.function_buttons{
                         order: 3;
                         >*>button{
-                            font-size: 1.5em;
+                            --icon-size: 1.5em;
                         }
                         >*>ul.dropdown_menu{
                             right: unset;
@@ -170,7 +170,7 @@
 
         dialog{
             >div .cross{
-                font-size: 1.5em;
+                --icon-size: 1.5em;
             }
         }
     }

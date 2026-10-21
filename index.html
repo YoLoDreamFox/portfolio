@@ -8,7 +8,6 @@
     <meta property="og:description" content="I turn design mockups into responsive interfaces and like everything to look neat on any screen.">
     <meta property="og:image" content="https://example.com">
     <meta property="og:url" content="https://yolodreamfox.github.io/portfolio/">
-    <link rel="stylesheet" href="./libs/Awesome-font/css/all.min.css">
     <link rel="icon" href="./favicon.ico">
     <script>
         try {
@@ -21,145 +20,146 @@
     <script type="module" src="js/main.js"></script>
     <title data-i18n="portfolio">Potfolio</title>
 </head>
-<div class="all_content">
-    <header>
-        <div class="avatar">
-            <img src="data/picture/avatar.gif" data-i18n="header_alt_avatar" alt="___"></img>
-        </div>
-        <div>
-            <div class="main">
-                <div class="nickname">
-                    <h1 data-i18n="portfolio_nickname">nickname</h1>
+<body>
+    <div class="all_content">
+        <header>
+            <div class="avatar">
+                <img src="data/picture/avatar.webp" fetchpriority="high" data-i18n="header_alt_avatar" alt="___"></img>
+            </div>
+            <div>
+                <div class="main">
+                    <div class="nickname">
+                        <h1 data-i18n="portfolio_nickname">nickname</h1>
+                    </div>
+                    <div class="title">
+                        <h1 data-i18n="portfolio_title">title</h1>
+                    </div>
+                    <div class="tags">
+                        <h1 data-i18n="portfolio_tags">tags</h1>
+                    </div>
+                    <div class="function_buttons">
+                        <div>
+                            <button class="language" id="language_button">
+                                <app-icon name="world"></app-icon>
+                            </button>
+                            <ul class="dropdown_menu invisible">
+                                <li>
+                                    <button id="switch-ru">
+                                        <span>&#x1F1F7;&#x1F1FA;</span>
+                                        <span>russian</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button id="switch-en">
+                                        <span>&#x1F1EC;&#x1F1E7;</span>
+                                        <span>english</span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="theme">
+                            <button class="light">
+                                <app-icon name="sun"></app-icon>
+                            </button>
+                            <button class="auto">
+                                <app-icon name="eclipse"></app-icon>
+                            </button>
+                            <button class="dark">
+                                <app-icon name="moon"></app-icon>
+                            </button>
+                            <span class="target_theme"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="title">
-                    <h1 data-i18n="portfolio_title">title</h1>
+                <div class="about_me">
+                    <h2 data-i18n="header_aboutme">About me</h2>
+                    <p data-i18n="header_aboutme_text">text</p>
+                    <button id="button_more_info">
+                        <p data-i18n="header_aboutme_button">link</p>
+                    </button>
                 </div>
-                <div class="tags">
-                    <h1 data-i18n="portfolio_tags">tags</h1>
+                <div class="forward">
+                    <button class="watch original" data-target="#project">
+                        <p data-i18n="header_project_button">watch</p>
+                        <span></span>
+                    </button>
+                    <button class="skills original" data-target="#skills">
+                        <p data-i18n="header_skill_button">skills</p>
+                        <span></span>
+                    </button>
+                    <button class="contacts original" data-target="#contacts">
+                        <p data-i18n="header_contact_button">contacts</p>
+                        <span></span>
+                    </button>
                 </div>
-                <div class="function_buttons">
+            </div>
+        </header>
+            <div class="projects" id="project">
+                <h1 data-i18n="h1_project">project</h1>
+                <div>
+                    <div class="selector" id="select_projects">
+                        <label class="project_radio_label">
+                            <input type="radio" name="project" value="project_1" checked>
+                            <span class="custom_radio">I</span>
+                        </label>
+                        <label class="project_radio_label">
+                            <input type="radio" name="project" value="project_2">
+                            <span class="custom_radio">II</span>
+                        </label>
+                        <label class="project_radio_label">
+                            <input type="radio" name="project" value="project_3">
+                            <span class="custom_radio">III</span>
+                        </label>
+                    </div>
+                    <div class="main" id="main_projects">
+                    </div>
+                </div>
+            </div>
+            <div class="skills" id="skills">
+                <h1 data-i18n="h1_skill">skill</h1>
+                <div>
+                    <div class="main" id="main_skills">
+                    </div>
                     <div>
-                        <button class="language" id="language_button">
-                            <i class="fa-regular fa-globe"></i>
+                        <button class="control_button right">
+                            <app-icon name="arrow_right"></app-icon>
                         </button>
-                        <ul class="dropdown_menu invisible">
-                            <li>
-                                <button id="switch-ru">
-                                    <span>&#x1F1F7;&#x1F1FA;</span>
-                                    <span>russian</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button id="switch-en">
-                                    <span>&#x1F1EC;&#x1F1E7;</span>
-                                    <span>english</span>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="theme">
-                        <button class="light">
-                            <i class="fa-solid fa-sun-bright"></i>
+                        <button class="control_button left">
+                            <app-icon name="arrow_left"></app-icon>
                         </button>
-                        <button class="auto">
-                            <i class="fal fa-eclipse"></i>
-                        </button>
-                        <button class="dark">
-                            <i class="fad fa-moon"></i>
-                        </button>
-                        <span class="target_theme"></span>
                     </div>
                 </div>
             </div>
-            <div class="about_me">
-                <h2 data-i18n="header_aboutme">About me</h2>
-                <p data-i18n="header_aboutme_text">text</p>
-                <button id="button_more_info">
-                    <p data-i18n="header_aboutme_button">link</p>
-                </button>
-            </div>
-            <div class="forward">
-                <button class="watch original" data-target="#project">
-                    <p data-i18n="header_project_button">watch</p>
-                    <span></span>
-                </button>
-                <button class="skills original" data-target="#skills">
-                    <p data-i18n="header_skill_button">skills</p>
-                    <span></span>
-                </button>
-                <button class="contacts original" data-target="#contacts">
-                    <p data-i18n="header_contact_button">contacts</p>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
-        <div class="projects" id="project">
-            <h1 data-i18n="h1_project">project</h1>
-            <div>
-                <div class="selector" id="select_projects">
-                    <label class="project_radio_label">
-                        <input type="radio" name="project" value="project_1" checked>
-                        <span class="custom_radio">I</span>
-                    </label>
-                    <label class="project_radio_label">
-                        <input type="radio" name="project" value="project_2">
-                        <span class="custom_radio">II</span>
-                    </label>
-                    <label class="project_radio_label">
-                        <input type="radio" name="project" value="project_3">
-                        <span class="custom_radio">III</span>
-                    </label>
-                </div>
-                <div class="main" id="main_projects">
+            <div class="experience">
+                <h1 data-i18n="h1_experience">Exp</h1>
+                <div class="all_exp" id="main_exp">
                 </div>
             </div>
-        </div>
-        <div class="skills" id="skills">
-            <h1 data-i18n="h1_skill">skill</h1>
-            <div>
-                <div class="main" id="main_skills">
+            <div class="contacts" id="contacts">
+                <h1 data-i18n="h1_contact">contacts</h1>
+                <div class="main" id="main_contacts">
                 </div>
                 <div>
-                    <button class="control_button right">
-                        <i class="far fa-long-arrow-right"></i>
-                    </button>
-                    <button class="control_button left">
-                        <i class="far fa-long-arrow-left"></i>
-                    </button>
+                    <p data-i18n="the_end_contact">lets</p>
                 </div>
             </div>
-        </div>
-        <div class="experience">
-            <h1 data-i18n="h1_experience">Exp</h1>
-            <div class="all_exp" id="main_exp">
-            </div>
-        </div>
-        <div class="contacts" id="contacts">
-            <h1 data-i18n="h1_contact">contacts</h1>
-            <div class="main" id="main_contacts">
-            </div>
+        <dialog id="more_info">
             <div>
-                <p data-i18n="the_end_contact">lets</p>
+                <form method="dialog">
+                    <button class="cross">
+                        <app-icon name="cross"></app-icon>
+                    </button>
+                </form>
+                <p data-i18n="header_aboutme_full_text_1"></p>
+                <p data-i18n="header_aboutme_full_text_2"></p>
+                <p data-i18n="header_aboutme_full_text_3"></p>
             </div>
-        </div>
-    <dialog id="more_info">
-        <div>
-            <form method="dialog">
-                <button class="cross">
-                    <i class="fas fa-times"></i>
-                </button>
-            </form>
-            <p data-i18n="header_aboutme_full_text_1"></p>
-            <p data-i18n="header_aboutme_full_text_2"></p>
-            <p data-i18n="header_aboutme_full_text_3"></p>
-        </div>
-    </dialog>
-</div>
-<footer>
-    <p><span>&copy;</span><span data-i18n="footer_copyright">name</span></p>
-    <p data-i18n="footer_info">info</p>
-    <p data-i18n="footer_right">rights</p>
-</footer>
+        </dialog>
+    </div>
+    <footer>
+        <p><span>&copy;</span><span data-i18n="footer_copyright">name</span></p>
+        <p data-i18n="footer_info">info</p>
+        <p data-i18n="footer_right">rights</p>
+    </footer>
+</body>
 </html>
-

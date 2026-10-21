@@ -6,8 +6,8 @@ export const projects = [
     name:  "name_project_number_1",
     description: "description_project_number_1",
     stack: ["HTML", "SCSS (Sass)", "JavaScript", "js-yaml",],
-    urlWatch: "https://yolodreamfox.github.io/Portfolio/",
-    urlCode: "https://github.com/YoLoDreamFox/Portfolio",
+    urlWatch: "https://yolodreamfox.github.io/portfolio/",
+    urlCode: "https://github.com/YoLoDreamFox/portfolio",
   },
   {
     id: "project_2",
@@ -106,19 +106,19 @@ export const experience = [
 export const contacts = [
   {
     id: "contact_id_1",
-    icon: "fa-brands fa-telegram",
+    icon: "telegram",
     name: "telegram",
     url: "tg://resolve?domain=YoLoDreamFox",
   },
   {
     id: "contact_id_2",
-    icon: "fal fa-envelope",
+    icon: "mail",
     name: "mail",
     url: "mailto:mailforwork12@mail.ru",
   },
   {
     id: "contact_id_3",
-    icon: "fab fa-github",
+    icon: "github",
     name: "github",
     url: "https://github.com/YoLoDreamFox",
   },

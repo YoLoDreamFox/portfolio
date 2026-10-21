@@ -285,9 +285,18 @@ html[data-theme=dark] span.target_theme {
     --standart-gap-large: 20px;
     --standart-border-radius: 10px;
     --max-width-button: 300px;
+    --icon-size: 1em;
   }
 }
 @layer main {
+  .testtest {
+    position: absolute;
+  }
+  .testtest > svg {
+    color: inherit;
+    width: 30px;
+    height: 30px;
+  }
   dialog {
     padding: 0;
     border: 0;
@@ -323,6 +332,7 @@ html[data-theme=dark] span.target_theme {
     position: relative;
     border-radius: var(--standart-border-radius);
     font-size: 1.2em;
+    --icon-size: 1.2em;
     padding: var(--standart-padding);
     cursor: pointer;
     color: var(--text-color);
@@ -351,6 +361,10 @@ html[data-theme=dark] span.target_theme {
   }
   a:hover {
     color: var(--button-color);
+  }
+  svg {
+    width: 100%;
+    height: 100%;
   }
   button.original, a.original {
     position: relative;
@@ -482,10 +496,15 @@ html[data-theme=dark] span.target_theme {
     display: flex;
     gap: var(--standart-gap-medium);
   }
+  header > :not(:first-child) > .main > .function_buttons > *:first-child {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
   header > :not(:first-child) > .main > .function_buttons > button,
   header > :not(:first-child) > .main > .function_buttons > * > button {
     line-height: 0;
-    font-size: 2em;
+    --icon-size: 2em;
     background: none;
     padding: 0;
     border: 0;
@@ -505,6 +524,7 @@ html[data-theme=dark] span.target_theme {
     overflow: hidden;
     border: 0;
     right: 0;
+    top: 100%;
     padding: 0;
     margin: 0;
     border-radius: var(--standart-border-radius);
@@ -528,6 +548,7 @@ html[data-theme=dark] span.target_theme {
     display: flex;
     gap: var(--standart-gap-small);
     font-size: 1em;
+    --icon-size: 1em;
     border-radius: 0;
     background: none;
   }
@@ -545,7 +566,7 @@ html[data-theme=dark] span.target_theme {
     z-index: 1;
     padding: 5px;
   }
-  header > :not(:first-child) > .main > .function_buttons > .theme > button > i {
+  header > :not(:first-child) > .main > .function_buttons > .theme > button > app-icon {
     pointer-events: none;
   }
   header > :not(:first-child) > .main > .function_buttons > .theme > span {
@@ -576,6 +597,7 @@ html[data-theme=dark] span.target_theme {
   }
   header > :not(:first-child) > .about_me button {
     text-decoration: underline;
+    border-radius: 0;
     margin-left: auto;
     background: none;
     padding: 0;
@@ -723,7 +745,7 @@ html[data-theme=dark] span.target_theme {
     background: var(--block-two-color);
     padding: var(--standart-padding);
     border: 0;
-    font-size: 1.5em;
+    --icon-size: 1.5em;
   }
   .skills > * > * > .control_button:hover {
     color: var(--button-color);
@@ -736,9 +758,14 @@ html[data-theme=dark] span.target_theme {
     right: 5px;
     --bias-arrow: -5%;
   }
-  .skills > * > * > .control_button:hover i {
+  .skills > * > * > .control_button:hover app-icon {
     -webkit-animation: moveArrow 0.5s infinite;
             animation: moveArrow 0.5s infinite;
+  }
+  .skills > * > * > .control_button > * {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
   .skills > * > .main {
     -webkit-box-pack: justify;
@@ -902,6 +929,9 @@ html[data-theme=dark] span.target_theme {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  .contacts > .main > .contact {
+    --icon-size: 2em;
+  }
   .contacts > *:last-child {
     text-align: center;
   }
@@ -1033,7 +1063,7 @@ html[data-theme=dark] span.target_theme {
               order: 3;
     }
     header > :not(:first-child) > .main > .function_buttons > * > button {
-      font-size: 1.5em;
+      --icon-size: 1.5em;
     }
     header > :not(:first-child) > .main > .function_buttons > * > ul.dropdown_menu {
       right: unset;
@@ -1171,7 +1201,7 @@ html[data-theme=dark] span.target_theme {
       display: none;
     }
     dialog > div .cross {
-      font-size: 1.5em;
+      --icon-size: 1.5em;
     }
   }
 }
