@@ -5,6 +5,20 @@ let translations = {
     en: null
 }
 
+const cache = new Map();
+
+function cacheYaml(url) {
+    if (!cache.has(url)) {
+        const promise = fetchYaml(url).catch(err=>{
+            cache.delete(url);
+            throw err;
+        });
+        cache.set(url, promise);
+    }
+    return cache.get(url);
+}
+
+
 async function fetchYaml(url) {
     const response = await fetch (url);
     if(!response.ok){
@@ -17,11 +31,13 @@ async function fetchYaml(url) {
 
 export async function gettingLocalization() {
     try {
+        const ruPromise = cacheYaml('./data/locales/ru.yaml');
+        const enPromise = cacheYaml('./data/locales/en.yaml');
         if (Object.values(translations).every(value => value === null)) {
 
             const [ruData,enData] = await Promise.all([
-                fetchYaml('./data/locales/ru.yaml'),
-                fetchYaml('./data/locales/en.yaml')
+                ruPromise,
+                enPromise
             ]);
     
             translations.ru = ruData;
