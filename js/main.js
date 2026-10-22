@@ -40,6 +40,21 @@ function renderIcons() {
     customElements.define('app-icon', renderIcon);
 }
 
+function progressiveLoading() {
+    window.addEventListener('load', () => {
+        const images = document.querySelectorAll('.progressive_load');
+        images.forEach(img => {
+            const targetSrc = img.getAttribute('data-src');
+            if (!targetSrc) return;
+            const tempImage = new Image();
+            tempImage.src = targetSrc;
+            tempImage.onload = () =>{
+                img.src = targetSrc;
+            }
+        });
+    })
+}
+
 async function renderProjects(id) {
     const found = projects.find(info => info.id === id);
     if (!found) return;
@@ -386,3 +401,4 @@ forwadingButton();
 
 scrollForAllCards();
 renderIcons();
+progressiveLoading();

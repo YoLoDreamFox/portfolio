@@ -2,6 +2,8 @@
 @use "./font.scss" as font;
 @use "./animation.scss" as animation;
 @use "./mobile.scss" as *;
+
+
 @layer import, main, mobileStyles;
 
 @layer import{

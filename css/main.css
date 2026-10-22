@@ -94,56 +94,56 @@ html[data-theme=dark] span.target_theme {
 
 @font-face {
   font-family: "Caveat";
-  src: url("../libs/font/Caveat/Caveat-Regular.ttf") format("truetype");
+  src: url("../libs/font/Caveat/Caveat-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Caveat";
-  src: url("../libs/font/Caveat/Caveat-Medium.ttf") format("truetype");
+  src: url("../libs/font/Caveat/Caveat-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Caveat";
-  src: url("../libs/font/Caveat/Caveat-SemiBold.ttf") format("truetype");
+  src: url("../libs/font/Caveat/Caveat-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Caveat";
-  src: url("../libs/font/Caveat/Caveat-Bold.ttf") format("truetype");
+  src: url("../libs/font/Caveat/Caveat-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Anonymous Pro";
-  src: url("../libs/font/Anonymous Pro/AnonymousPro-Regular.ttf") format("truetype");
+  src: url("../libs/font/Anonymous Pro/AnonymousPro-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Anonymous Pro";
-  src: url("../libs/font/Anonymous Pro/AnonymousPro-Italic.ttf") format("truetype");
+  src: url("../libs/font/Anonymous Pro/AnonymousPro-Italic.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: "Anonymous Pro";
-  src: url("../libs/font/Anonymous Pro/AnonymousPro-Bold.ttf") format("truetype");
+  src: url("../libs/font/Anonymous Pro/AnonymousPro-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Anonymous Pro";
-  src: url("../libs/font/Anonymous Pro/AnonymousPro-BoldItalic.ttf") format("truetype");
+  src: url("../libs/font/Anonymous Pro/AnonymousPro-BoldItalic.woff2") format("woff2");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
