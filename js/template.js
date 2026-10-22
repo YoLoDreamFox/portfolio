@@ -2,7 +2,7 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
     const hiden = !url_code ? 'invisible' : '' ; 
     const html = `
     <div class="picture">
-        <img src="${src_picture_project}" data-i18n="${alt_picture_project}" alt=""></img>
+        <img src="${src_picture_project}" data-i18n="${alt_picture_project}" alt="" loading="lazy"></img>
     </div>
     <div>
         <h2 data-i18n="${name_project}"></h2>
