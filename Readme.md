@@ -63,7 +63,6 @@ HTML5, SCSS (Sass), JavaScript (ES-модули, без фреймворков),
 
 ## Благодарности и лицензии
 
-- [Font Awesome Free](https://fontawesome.com/license/free): иконки CC BY 4.0, шрифты SIL OFL, код MIT
 - [js-yaml](https://github.com/nodeca/js-yaml): MIT
 - Эффект наведения на кнопки основан на открытом примере из интернета, первоисточник не сохранился
 - Шрифты: Caveat (SIL OFL), Anonymous Pro (SIL OFL)

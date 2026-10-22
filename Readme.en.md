@@ -63,7 +63,6 @@ The page is hosted on GitHub Pages (Settings → Pages → `main` branch, reposi
 
 ## Credits and licenses
 
-- [Font Awesome Free](https://fontawesome.com/license/free): icons CC BY 4.0, fonts SIL OFL, code MIT
 - [js-yaml](https://github.com/nodeca/js-yaml): MIT
 - The button hover effect is based on a public example found online; the original source was not saved
 - Fonts: Caveat (SIL OFL), Anonymous Pro (SIL OFL)

@@ -1,4 +1,4 @@
-import '../libs/js-yaml/js-yaml.js';
+import '../libs/js-yaml/js-yaml.min.js';
 
 let translations = {
     ru: null,
