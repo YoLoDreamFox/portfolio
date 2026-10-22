@@ -13,15 +13,6 @@
 }
 
 @layer main{
-
-    .testtest{
-        position: absolute;
-        >svg{
-            color: inherit;
-            width: 30px;
-            height: 30px;
-        }
-    }
      
     @mixin flex-column($gap) {
         display: flex;

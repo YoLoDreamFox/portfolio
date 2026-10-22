@@ -220,6 +220,8 @@ async function renderLanguage(currentLanguage) {
     
             if (dataI18n.hasAttribute('alt')) {
                 dataI18n.setAttribute('alt', languageData[info] ?? languageData["error_nonexistent_key"]);
+            } else if (dataI18n.hasAttribute('aria-label')) {
+                dataI18n.setAttribute('aria-label', languageData[info] ?? languageData["error_nonexistent_key"]);
             } else {
                 dataI18n.textContent = languageData[info] ?? languageData["error_nonexistent_key"];
             }
@@ -244,15 +246,23 @@ function languageButton() {
     document.addEventListener('click', (event) => {
         if (languageButton.contains(event.target)) {
             dropdownMenu.classList.toggle('invisible');
+            languageButton.setAttribute('aria-expanded', languageButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
         } else if (!dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.add('invisible');
+            languageButton.setAttribute('aria-expanded', 'false');
         }
     });
-    languageButton.parentElement.addEventListener('mouseover', () => {
+    languageButton.parentElement.addEventListener('pointerenter', () => {
         dropdownMenu.classList.remove('invisible');
+        languageButton.setAttribute('aria-expanded', 'true');
     });
-    languageButton.parentElement.addEventListener('mouseout', () => {
+    languageButton.parentElement.addEventListener('pointerleave', () => {
         dropdownMenu.classList.add('invisible');
+        languageButton.setAttribute('aria-expanded', 'false');
+    });
+    dropdownMenu.addEventListener('click', () => {
+        dropdownMenu.classList.add('invisible');
+        languageButton.setAttribute('aria-expanded', 'false');
     });
 }
 

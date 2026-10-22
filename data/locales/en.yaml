@@ -39,7 +39,13 @@ footer_right : "All rights fur-served"
 error_not_specified_key : "NO KEY SPECIFIED FOR THIS VARIABLE!"
 error_nonexistent_key : "THE SPECIFIED KEY DOES NOT EXIST!"
 
-# ------- Меняемые -------
+aria_label_language: "Language change"
+aria_label_sun: "Light theme"
+aria_label_eclipse: "Automatic theme"
+aria_label_moon: "Dark theme"
+aria_label_cross: "Closing the dialog"
+
+# ------- Mutable -------
 alt_picture_project_number_1 : "Screenshot of the portfolio page"
 alt_picture_project_number_2 : "Screenshot description"
 alt_picture_project_number_3 : "Screenshot description"

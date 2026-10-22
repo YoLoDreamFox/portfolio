@@ -6,7 +6,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="YoLoDreamFox">
     <meta property="og:description" content="I turn design mockups into responsive interfaces and like everything to look neat on any screen.">
-    <meta property="og:image" content="https://example.com">
+    <meta property="og:image" content="https://yolodreamfox.github.io/portfolio/data/picture/image.jpg">
     <meta property="og:url" content="https://yolodreamfox.github.io/portfolio/">
     <link rel="icon" href="./favicon.ico">
     <script>
@@ -43,8 +43,8 @@
                     </div>
                     <div class="function_buttons">
                         <div>
-                            <button class="language" id="language_button">
-                                <app-icon name="world"></app-icon>
+                            <button class="language" id="language_button" data-i18n="aria_label_language" aria-label="" aria-haspopup="menu" aria-expanded="false"> 
+                                <app-icon name="world" aria-hidden="true"></app-icon>
                             </button>
                             <ul class="dropdown_menu invisible">
                                 <li>
@@ -62,14 +62,14 @@
                             </ul>
                         </div>
                         <div class="theme">
-                            <button class="light">
-                                <app-icon name="sun"></app-icon>
+                            <button class="light" data-i18n="aria_label_sun" aria-label="">
+                                <app-icon name="sun" aria-hidden="true"></app-icon>
                             </button>
-                            <button class="auto">
-                                <app-icon name="eclipse"></app-icon>
+                            <button class="auto" data-i18n="aria_label_eclipse" aria-label="">
+                                <app-icon name="eclipse" aria-hidden="true"></app-icon>
                             </button>
-                            <button class="dark">
-                                <app-icon name="moon"></app-icon>
+                            <button class="dark" data-i18n="aria_label_moon" aria-label="">
+                                <app-icon name="moon" aria-hidden="true"></app-icon>
                             </button>
                             <span class="target_theme"></span>
                         </div>
@@ -78,7 +78,7 @@
                 <div class="about_me">
                     <h2 data-i18n="header_aboutme">About me</h2>
                     <p data-i18n="header_aboutme_text">text</p>
-                    <button id="button_more_info">
+                    <button id="button_more_info" aria-haspopup="dialog">
                         <p data-i18n="header_aboutme_button">link</p>
                     </button>
                 </div>
@@ -150,8 +150,8 @@
         <dialog id="more_info">
             <div>
                 <form method="dialog">
-                    <button class="cross">
-                        <app-icon name="cross"></app-icon>
+                    <button class="cross" data-i18n="aria_label_cross" aria-label="">
+                        <app-icon name="cross" aria-hidden="true"></app-icon>
                     </button>
                 </form>
                 <p data-i18n="header_aboutme_full_text_1"></p>

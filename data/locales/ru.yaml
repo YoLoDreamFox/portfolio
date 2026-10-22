@@ -40,8 +40,14 @@ footer_right : "Все права зафырфырканы"
 error_not_specified_key : "У ПЕРЕМЕННОЙ НЕ УКАЗАН КЛЮЧ!"
 error_nonexistent_key : "УКАЗАН НЕ СУЩЕСТВУЮЩИЙ КЛЮЧ!"
 
-# ------- Меняемые -------
-# TODO написать описания скрина
+
+aria_label_language: "Смена языка"
+aria_label_sun: "Светлая тема"
+aria_label_eclipse: "Автоматическая тема"
+aria_label_moon: "Темная тема"
+aria_label_cross: "Закрытие диалога"
+
+# ------- Изменяемые -------
 alt_picture_project_number_1 : "Скриншот страницы-портфолио"
 alt_picture_project_number_2 : "Описание скриншота"
 alt_picture_project_number_3 : "Описание скриншота"
