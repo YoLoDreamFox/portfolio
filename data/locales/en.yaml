@@ -44,6 +44,8 @@ aria_label_sun: "Light theme"
 aria_label_eclipse: "Automatic theme"
 aria_label_moon: "Dark theme"
 aria_label_cross: "Closing the dialog"
+aria_label_arrow_left: "Left arrow"
+aria_label_arrow_right: "Right arrow"
 
 # ------- Mutable -------
 alt_picture_project_number_1 : "Screenshot of the portfolio page"

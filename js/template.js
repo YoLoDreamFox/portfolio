@@ -13,11 +13,11 @@ export function templateProject(src_picture_project,alt_picture_project,name_pro
             <p data-i18n="project_stack"></p><p>${stack_project}</p>
         </div>
         <div class="buttons ">
-            <a href="${url_watch}" target="_blank" class="watch original">
+            <a href="${url_watch}" target="_blank" rel="noopener noreferrer" class="watch original">
                 <p data-i18n="project_site"></p> 
                 <span></span>
             </a>
-            <a href="${url_code}" target="_blank" class="code original ${hiden}">
+            <a href="${url_code}" target="_blank" rel="noopener noreferrer" class="code original ${hiden}">
                 <p data-i18n="project_code"></p>
                 <span></span>
             </a>
@@ -164,7 +164,7 @@ export function templateContact(icon_contact,url_contact,name_contact) {
     const placeholder = document.createElement('div');
     placeholder.className = 'contact';
     placeholder.innerHTML = `
-    <a href="${url_contact}" target="_blank"><app-icon name="${icon_contact}"></app-icon><span>${name_contact}</span></a>
+    <a href="${url_contact}" target="_blank" rel="noopener noreferrer"><app-icon name="${icon_contact}"></app-icon><span>${name_contact}</span></a>
     `;
     return placeholder;
 }

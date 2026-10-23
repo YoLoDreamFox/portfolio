@@ -46,6 +46,8 @@ aria_label_sun: "Светлая тема"
 aria_label_eclipse: "Автоматическая тема"
 aria_label_moon: "Темная тема"
 aria_label_cross: "Закрытие диалога"
+aria_label_arrow_left: "Стрелка влево"
+aria_label_arrow_right: "Стрелка вправо"
 
 # ------- Изменяемые -------
 alt_picture_project_number_1 : "Скриншот страницы-портфолио"
