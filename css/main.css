@@ -995,8 +995,10 @@ html[data-theme=dark] span.target_theme {
     }
     header > .avatar {
       width: 720px;
-      min-width: unset;
-      min-height: unset;
+      min-width: 720px;
+      min-height: -webkit-fit-content;
+      min-height: -moz-fit-content;
+      min-height: fit-content;
     }
   }
   @media (max-width: 1080px) {
@@ -1014,9 +1016,11 @@ html[data-theme=dark] span.target_theme {
               flex-direction: column;
     }
     header > .avatar {
-      width: unset;
-      min-width: unset;
-      min-height: unset;
+      width: 100%;
+      min-width: 100%;
+      min-height: -webkit-fit-content;
+      min-height: -moz-fit-content;
+      min-height: fit-content;
     }
     header > :not(:first-child) > .main {
       display: grid;

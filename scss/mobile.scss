@@ -4,8 +4,8 @@
             flex-direction: column;
             >.avatar{
                 width: 720px;
-                min-width: unset;
-                min-height: unset;
+                min-width: 720px;
+                min-height: fit-content;
             }
         }
     }
@@ -28,9 +28,9 @@
         header{
             flex-direction: column;
             >.avatar{
-                width: unset;
-                min-width: unset;
-                min-height: unset;
+                width: 100%;
+                min-width: 100%;
+                min-height: fit-content;
             }
             >:not(:first-child){
     
