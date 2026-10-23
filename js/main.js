@@ -1,6 +1,6 @@
 import {templateProject,templateCard,templateExperience,templateContact} from './template.js';
 import {projects,cards,experience,contacts} from '../data/data.js';
-import {gettingLocalization} from './language.js';
+import {gettingLocalization, supportedLanguages, preloadOtherLanguages} from './language.js';
 
 
 const select_project = document.getElementById('select_projects');
@@ -184,7 +184,6 @@ function localCurrentLanguage() {
         tryLocal = null;
     };
     let currentLanguage = tryLocal ?? navigator.language.split('-')[0];
-    const supportedLanguages = ['ru', 'en'];
     if (!supportedLanguages.includes(currentLanguage)) {
         currentLanguage = 'en';
     }
@@ -194,6 +193,7 @@ function localCurrentLanguage() {
 
 function switchLanguage() {
     renderLanguage (localCurrentLanguage());
+    preloadOtherLanguages (localCurrentLanguage());
     const switchRu = document.getElementById('switch-ru');
     const switchEn = document.getElementById('switch-en');
     switchRu.addEventListener('click', function() {
@@ -212,9 +212,9 @@ function switchLanguage() {
 async function renderLanguage(currentLanguage) {
     document.documentElement.setAttribute('lang', currentLanguage);
     const allDatai18n = document.querySelectorAll('[data-i18n]');
-    const translation = await gettingLocalization();
+    const translation = await gettingLocalization(currentLanguage);
     if (translation !== null && translation !== undefined) {
-        const languageData = translation[currentLanguage];
+        const languageData = translation;
         for (const dataI18n of allDatai18n) {
             const info = dataI18n.dataset.i18n ?? "error_not_specified_key";
     
@@ -252,13 +252,17 @@ function languageButton() {
             languageButton.setAttribute('aria-expanded', 'false');
         }
     });
-    languageButton.parentElement.addEventListener('pointerenter', () => {
-        dropdownMenu.classList.remove('invisible');
-        languageButton.setAttribute('aria-expanded', 'true');
+    languageButton.parentElement.addEventListener('pointerenter', (event) => {
+        if (event.pointerType == 'mouse') {
+            dropdownMenu.classList.remove('invisible');
+            languageButton.setAttribute('aria-expanded', 'true');
+        }
     });
-    languageButton.parentElement.addEventListener('pointerleave', () => {
-        dropdownMenu.classList.add('invisible');
-        languageButton.setAttribute('aria-expanded', 'false');
+    languageButton.parentElement.addEventListener('pointerleave', (event) => {
+        if (event.pointerType == 'mouse') {
+            dropdownMenu.classList.add('invisible');
+            languageButton.setAttribute('aria-expanded', 'false');
+        }
     });
     dropdownMenu.addEventListener('click', () => {
         dropdownMenu.classList.add('invisible');

@@ -289,14 +289,6 @@ html[data-theme=dark] span.target_theme {
   }
 }
 @layer main {
-  .testtest {
-    position: absolute;
-  }
-  .testtest > svg {
-    color: inherit;
-    width: 30px;
-    height: 30px;
-  }
   dialog {
     padding: 0;
     border: 0;
@@ -1002,7 +994,7 @@ html[data-theme=dark] span.target_theme {
               flex-direction: column;
     }
     header > .avatar {
-      width: unset;
+      width: 720px;
       min-width: unset;
       min-height: unset;
     }

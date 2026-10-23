@@ -22,7 +22,7 @@ English version: [Readme.en.md](Readme.en.md)
 
 ## Стек
 
-HTML5, SCSS (Sass), JavaScript (ES-модули, без фреймворков), js-yaml, Font Awesome.
+HTML5, SCSS (Sass), JavaScript (ES-модули, без фреймворков), js-yaml.
 Шрифты: Caveat, Anonymous Pro.
 
 ## Структура проекта

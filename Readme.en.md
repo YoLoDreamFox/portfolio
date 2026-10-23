@@ -22,7 +22,7 @@ Hand-coded in HTML and SCSS; all content is loaded from data files.
 
 ## Stack
 
-HTML5, SCSS (Sass), JavaScript (ES modules, no frameworks), js-yaml, Font Awesome.
+HTML5, SCSS (Sass), JavaScript (ES modules, no frameworks), js-yaml.
 Fonts: Caveat, Anonymous Pro.
 
 ## Project structure
