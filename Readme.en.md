@@ -1,7 +1,7 @@
 # YoLoDreamFox — HTML/CSS developer portfolio
 
 A responsive portfolio page for a junior HTML/CSS developer: projects, skills, experience and contacts.
-Hand-coded in HTML and SCSS; all content is loaded from data files.
+Design, layout and the avatar are by the author: the mockup was drawn in Figma, and the page is hand-coded in HTML and SCSS.; all content is loaded from data files.
 
 Русская версия: [Readme.md](Readme.md)
 
@@ -36,7 +36,7 @@ Fonts: Caveat, Anonymous Pro.
 │   ├── data.js     projects, skills, experience
 │   ├── picture/    work screenshots, avatar
 │   └── locales/    ru.yaml, en.yaml
-└── libs/           js-yaml, Font Awesome, fonts
+└── libs/           js-yaml, icons, fonts
 ```
 
 ## Running locally
@@ -70,4 +70,5 @@ The page is hosted on GitHub Pages (Settings → Pages → `main` branch, reposi
 ## License
 
 © 2026 YoLoDreamFox. All rights reserved.
+Third-party resources (icons, fonts) are distributed under their own licenses.
 The code is published for viewing. Permission from the author is required to use it in other projects.

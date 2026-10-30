@@ -49,15 +49,15 @@ aria_label_arrow_right: "Right arrow"
 
 # ------- Mutable -------
 alt_picture_project_number_1 : "Screenshot of the portfolio page"
-alt_picture_project_number_2 : "Screenshot description"
+alt_picture_project_number_2 : "Screenshot of the furniture store home page"
 alt_picture_project_number_3 : "Screenshot description"
  
 name_project_number_1 : "Portfolio"
-name_project_number_2 : "Name 2"
+name_project_number_2 : "Furniro: furniture store"
 name_project_number_3 : "Name 3"
  
 description_project_number_1 : "My portfolio page. Responsive layout for desktop and mobile, light and dark themes, Russian and English versions. Projects, skills and experience are rendered from data files, and the animations are built with CSS."
-description_project_number_2 : "Incredible description of project 2"
+description_project_number_2 : "Home page of a furniture store, built from a Figma Community design. Responsive layout for desktop and mobile, a product grid, a carousel and hover states. I designed the mobile version and the improvements to the design myself."
 description_project_number_3 : "Incredible description of project 3"
  
 name_card_number_1 : "Layout"

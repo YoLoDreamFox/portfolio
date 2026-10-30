@@ -51,15 +51,15 @@ aria_label_arrow_right: "Стрелка вправо"
 
 # ------- Изменяемые -------
 alt_picture_project_number_1 : "Скриншот страницы-портфолио"
-alt_picture_project_number_2 : "Описание скриншота"
+alt_picture_project_number_2 : "Скриншот главной страницы мебельного магазина"
 alt_picture_project_number_3 : "Описание скриншота"
 
 name_project_number_1 : "Портфолио"
-name_project_number_2 : "Имя 2"
+name_project_number_2 : "Furniro: магазин мебели"
 name_project_number_3 : "Имя 3"
 
 description_project_number_1 : "Моя страница-портфолио. Адаптивная вёрстка для компьютера и телефона, светлая и тёмная темы, переключение русского и английского. Проекты, навыки и опыт подставляются из файлов данных, а анимации сделаны на CSS."
-description_project_number_2 : "Невероятной описание 2 проекта"
+description_project_number_2 : "Главная страница мебельного магазина по макету из Figma Community. Адаптивная вёрстка для компьютера и телефона, сетка товаров, карусель и состояния наведения. Мобильную версию и доработки макета сделал сам."
 description_project_number_3 : "Невероятной описание 3 проекта"
 
 name_card_number_1 : "Верстка"

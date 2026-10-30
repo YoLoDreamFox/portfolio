@@ -15,9 +15,9 @@ export const projects = [
     alt:   "alt_picture_project_number_2",
     name:    "name_project_number_2",
     description: "description_project_number_2",
-    stack: ["", "", ""],
-    urlWatch: "https://...",
-    urlCode: "https://...",
+    stack: ["HTML", "SCSS (Sass)", "JavaScript"],
+    urlWatch: "https://yolodreamfox.github.io/furniture-shop-page/",
+    urlCode: "https://github.com/YoLoDreamFox/furniture-shop-page",
   },
   {
     id: "project_3",

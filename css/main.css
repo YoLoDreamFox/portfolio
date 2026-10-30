@@ -471,6 +471,11 @@ html[data-theme=dark] span.target_theme {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
+  header > :not(:first-child) > .main > .nickname > h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   header > :not(:first-child) > .main > *:not(:last-child) {
     display: contents;
   }
@@ -818,6 +823,9 @@ html[data-theme=dark] span.target_theme {
   .skills > * > .main .card > .all > label .info > p {
     width: 100%;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .skills > * > .main .card > .all > label .info > p:first-child {
     text-align: start;

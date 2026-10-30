@@ -94,6 +94,12 @@
                 gap: var(--standart-gap-small);
                 align-items: center;
                 justify-content: space-between;
+
+                >.nickname>h1{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
      
                 >*:not(:last-child) {
                     display: contents;
@@ -389,6 +395,9 @@
                                 >p {
                                     width: 100%;
                                     text-align: center;
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
                                 }
      
                                 >p:first-child {
