@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of YoLoDreamFox, a junior HTML/CSS developer: responsive layouts, SCSS and JavaScript projects, skills and experience. In English and Russian." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="YoLoDreamFox">
-    <meta property="og:description" content="I turn design mockups into responsive interfaces and like everything to look neat on any screen.">
+    <meta property="og:title" content="YoLoDreamFox: junior HTML/CSS developer portfolio">
+    <meta property="og:description" content="Portfolio of YoLoDreamFox, a junior HTML/CSS developer: responsive layouts, SCSS and JavaScript projects, skills and experience. In English and Russian.">
     <meta property="og:image" content="https://yolodreamfox.github.io/portfolio/data/picture/image.jpg">
     <meta property="og:url" content="https://yolodreamfox.github.io/portfolio/">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-C7+B9muRBiUinkUi8B8FIMikNj+4cM0jaPWNjyA8dVM=' 'sha256-vvt4KWwuNr51XfE5m+hzeNEGhiOfZzG97ccfqGsPwvE='; style-src 'self' 'unsafe-hashes' 'sha256-ZYmAo0zec5qwMX24pLcJ+bhti9XclFkkDIpr7CYaHZo=' 'sha256-lageY5Sfz8bBOI7mPefv7GDHoIgY/y6hCIyC4Nb0Vug='; base-uri 'self'; object-src 'none';">
@@ -33,18 +34,19 @@
     <link rel="modulepreload" href="js/language.js">
     <link rel="modulepreload" href="data/data.js">
     <script type="module" src="js/main.js"></script>
-    <title data-i18n="portfolio">Potfolio</title>
+    <title data-i18n="portfolio">YoLoDreamFox: junior HTML/CSS developer portfolio</title>
 </head>
 <body>
     <div class="all_content">
         <header>
             <div class="avatar">
-                <img src="data/picture/avatar_low.webp" class="progressive_load" fetchpriority="high" data-src="data/picture/avatar.webp" data-i18n="header_alt_avatar" alt="___"></img>
+                <img src="data/picture/avatar_low.webp" class="progressive_load" fetchpriority="high" data-src="data/picture/avatar.webp" data-i18n="header_alt_avatar" alt=""></img>
             </div>
             <div>
                 <div class="main">
                     <div class="nickname">
                         <h1 data-i18n="portfolio_nickname">nickname</h1>
+                        <h1 data-i18n="portfolio_nickname_short">nickname</h1>
                     </div>
                     <div class="title">
                         <h1 data-i18n="portfolio_title">title</h1>
@@ -109,6 +111,7 @@
                 </div>
             </div>
         </header>
+        <main>
             <div class="projects" id="project">
                 <h1 data-i18n="h1_project">project</h1>
                 <div>
@@ -121,10 +124,10 @@
                             <input type="radio" name="project" value="project_2">
                             <span class="custom_radio">II</span>
                         </label>
-                        <label class="project_radio_label">
+                        <!-- <label class="project_radio_label">
                             <input type="radio" name="project" value="project_3">
                             <span class="custom_radio">III</span>
-                        </label>
+                        </label> -->
                     </div>
                     <div class="main" id="main_projects">
                     </div>
@@ -158,18 +161,19 @@
                     <p data-i18n="the_end_contact">lets</p>
                 </div>
             </div>
-        <dialog id="more_info">
-            <div>
-                <form method="dialog">
-                    <button class="cross" data-i18n="aria_label_cross" aria-label="">
-                        <app-icon name="cross" aria-hidden="true"></app-icon>
-                    </button>
-                </form>
-                <p data-i18n="header_aboutme_full_text_1"></p>
-                <p data-i18n="header_aboutme_full_text_2"></p>
-                <p data-i18n="header_aboutme_full_text_3"></p>
-            </div>
-        </dialog>
+            <dialog id="more_info">
+                <div>
+                    <form method="dialog">
+                        <button class="cross" data-i18n="aria_label_cross" aria-label="">
+                            <app-icon name="cross" aria-hidden="true"></app-icon>
+                        </button>
+                    </form>
+                    <p data-i18n="header_aboutme_full_text_1"></p>
+                    <p data-i18n="header_aboutme_full_text_2"></p>
+                    <p data-i18n="header_aboutme_full_text_3"></p>
+                </div>
+            </dialog>
+        </main>
     </div>
     <footer>
         <p><span>&copy;</span><span data-i18n="footer_copyright">name</span></p>

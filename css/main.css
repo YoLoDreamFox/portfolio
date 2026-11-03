@@ -473,8 +473,10 @@ html[data-theme=dark] span.target_theme {
   }
   header > :not(:first-child) > .main > .nickname > h1 {
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
+  }
+  header > :not(:first-child) > .main > .nickname > *:last-child {
+    display: none;
   }
   header > :not(:first-child) > .main > *:not(:last-child) {
     display: contents;
@@ -794,7 +796,7 @@ html[data-theme=dark] span.target_theme {
     padding: var(--standart-padding);
     border-radius: var(--standart-border-radius);
     width: 100%;
-    min-width: 300px;
+    min-width: 320px;
     max-width: 400px;
     scroll-snap-align: center;
   }
@@ -805,7 +807,7 @@ html[data-theme=dark] span.target_theme {
     display: grid;
     gap: var(--standart-gap-medium);
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 5fr 11fr;
     opacity: 0.8;
   }
   .skills > * > .main .card > .all > label::before {
@@ -847,7 +849,7 @@ html[data-theme=dark] span.target_theme {
     display: grid;
     gap: var(--standart-gap-medium);
     grid-template-rows: 1fr;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 5fr 11fr;
   }
   .skills > * > .main .card > .all > .all_bars > .progress_bar > p {
     white-space: nowrap;
@@ -1039,6 +1041,7 @@ html[data-theme=dark] span.target_theme {
       -webkit-box-ordinal-group: 2;
           -ms-flex-order: 1;
               order: 1;
+      overflow: hidden;
     }
     header > :not(:first-child) > .main > .nickname::after {
       -webkit-box-ordinal-group: 3;
@@ -1118,8 +1121,7 @@ html[data-theme=dark] span.target_theme {
       width: 100%;
     }
     .projects > :not(:first-child) > .main > * > * h2 {
-      -ms-flex-item-align: center;
-          align-self: center;
+      text-align: center;
     }
     .projects > :not(:first-child) > .main > * > * > .buttons {
       -webkit-box-orient: vertical;
@@ -1135,6 +1137,9 @@ html[data-theme=dark] span.target_theme {
       -webkit-box-align: center;
           -ms-flex-align: center;
               align-items: center;
+    }
+    .skills > * > .main > .card {
+      min-width: 300px;
     }
     .experience > .all_exp > .work {
       gap: var(--standart-gap-large);
@@ -1206,6 +1211,14 @@ html[data-theme=dark] span.target_theme {
     }
     dialog > div .cross {
       --icon-size: 1.5em;
+    }
+  }
+  @media (max-width: 400px) {
+    header > :not(:first-child) > .main > .nickname > *:first-child {
+      display: none;
+    }
+    header > :not(:first-child) > .main > .nickname > *:last-child {
+      display: unset;
     }
   }
 }

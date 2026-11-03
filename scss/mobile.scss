@@ -13,10 +13,6 @@
     @media (max-width: 1080px) {
         body,html {
             --standart-padding: 10px;
-            // --standart-gap-small: 5px;
-            // --standart-gap-medium: 10px;
-            // --standart-gap-large: 20px;
-            // --standart-border-radius: 10px;
 
             --max-width-button: unset;
         }
@@ -41,6 +37,7 @@
                     >.nickname{
                         >h1{
                             order: 1;
+                            overflow: hidden;
                         }
                         &::after{
                             order: 2;
@@ -106,7 +103,7 @@
                         }
                         >*{
                             h2{
-                                align-self: center;
+                                text-align: center;
                             }
                             >.buttons{
                                 flex-direction: column;
@@ -120,6 +117,10 @@
             >*>.main {
                 flex-direction: column;
                 align-items: center;
+
+                >.card {
+                    min-width: 300px;
+                }
             }
         }
         .experience{
@@ -171,6 +172,17 @@
         dialog{
             >div .cross{
                 --icon-size: 1.5em;
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        header>:not(:first-child)>.main>.nickname{
+            >*:first-child{
+                display: none;
+            }
+            >*:last-child{
+                display: unset;
             }
         }
     }

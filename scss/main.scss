@@ -40,7 +40,6 @@
     
     @mixin label-row {
         display: block;
-        // gap: var(--standart-gap-small);
         >:first-child {
             font-weight: bold;
         }
@@ -53,7 +52,7 @@
         display: grid;
         gap: var(--standart-gap-medium);
         grid-template-rows: 1fr;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 5fr 11fr;
     }
      
     $meter-radius: 15px;
@@ -84,7 +83,7 @@
                 border-radius: 100%;
             }
         }
-     
+    
         >:not(:first-child) {
             @include flex-column(var(--standart-gap-large));
             width: 100%;
@@ -95,11 +94,16 @@
                 align-items: center;
                 justify-content: space-between;
 
-                >.nickname>h1{
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                >.nickname{
+                    >h1{
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    >*:last-child{
+                        display: none;
+                    }
                 }
+                
      
                 >*:not(:last-child) {
                     display: contents;
@@ -364,12 +368,12 @@
                 &::-webkit-scrollbar {
                     display: none;
                 }
-     
+
                 .card {
                     @include flex-column(var(--standart-gap-medium));
                     @include surface(var(--block-one-color));
                     width: 100%;
-                    min-width: 300px;
+                    min-width: 320px;
                     max-width: 400px;
                     scroll-snap-align: center;
      
